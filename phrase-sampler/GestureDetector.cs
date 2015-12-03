@@ -238,7 +238,7 @@ namespace Microsoft.Samples.Kinect.DiscreteGestureBasics
                                     if (result.Confidence > 0.25)
                                     {
                                         sw1Done = true;
-                                        Console.Write("\nsw1Name RESULT: " + result.Detected + "|" + result.Confidence);
+                                        //Console.Write("\nsw1Name RESULT: " + result.Detected + "|" + result.Confidence);
                                     }
                                     this.GestureResultView.UpdateGestureResult(true, result.Detected, result.Confidence);
                                 }
@@ -254,7 +254,7 @@ namespace Microsoft.Samples.Kinect.DiscreteGestureBasics
                                     if (result.Confidence > 0.23 & sw1Done)
                                     {
                                         sw2Done = true;
-                                        Console.Write("\nsw2Name RESULT: " + result.Detected + "|" + result.Confidence);                                    
+                                        //Console.Write("\nsw2Name RESULT: " + result.Detected + "|" + result.Confidence);                                    
                                     }                                        
                                     this.GestureResultView.UpdateGestureResult(true, result.Detected, result.Confidence);
                                 }

@@ -51,7 +51,7 @@ namespace Microsoft.Samples.Kinect.DiscreteGestureBasics
         private bool startMode = false;
 
         //############# PHRASE NAME ################
-        private String phrase_name = "car-crash";
+        private String phrase_name = "carcrash";
         /// <summary>
         /// Initializes a new instance of the MainWindow class
         /// </summary>
@@ -244,7 +244,7 @@ namespace Microsoft.Samples.Kinect.DiscreteGestureBasics
                 }
             }
 
-            if (Keyboard.IsKeyDown(Key.X))
+            if (Keyboard.IsKeyDown(Key.Space))
             {
                 if (startMode)
                 {
@@ -337,11 +337,31 @@ namespace Microsoft.Samples.Kinect.DiscreteGestureBasics
             Joint kneer = body.Joints[JointType.KneeRight];         //17
             Joint kneel = body.Joints[JointType.KneeLeft];          //13
 
+            double l0 = Math.Round(Math.Sqrt(Math.Pow((neck.Position.X - shoulderl.Position.X), 2) + Math.Pow((neck.Position.Y - shoulderl.Position.Y), 2) + Math.Pow((neck.Position.Z - shoulderl.Position.Z), 2)), 5);
+            double r0 = Math.Round(Math.Sqrt(Math.Pow((neck.Position.X - shoulderr.Position.X), 2) + Math.Pow((neck.Position.Y - shoulderr.Position.Y), 2) + Math.Pow((neck.Position.Z - shoulderr.Position.Z), 2)), 5);
+            double l1 = Math.Round(Math.Sqrt(Math.Pow((shoulderl.Position.X - elbowl.Position.X), 2) + Math.Pow((shoulderl.Position.Y - elbowl.Position.Y), 2) + Math.Pow((shoulderl.Position.Z - elbowl.Position.Z), 2)), 5);
+            double r1 = Math.Round(Math.Sqrt(Math.Pow((shoulderr.Position.X - elbowr.Position.X), 2) + Math.Pow((shoulderr.Position.Y - elbowr.Position.Y), 2) + Math.Pow((shoulderr.Position.Z - elbowr.Position.Z), 2)), 5);
+            double l2 = Math.Round(Math.Sqrt(Math.Pow((elbowl.Position.X - wristl.Position.X), 2) + Math.Pow((elbowl.Position.Y - wristl.Position.Y), 2) + Math.Pow((elbowl.Position.Z - wristl.Position.Z), 2)), 4);
+            double r2 = Math.Round(Math.Sqrt(Math.Pow((elbowr.Position.X - wristr.Position.X), 2) + Math.Pow((elbowr.Position.Y - wristr.Position.Y), 2) + Math.Pow((elbowr.Position.Z - wristr.Position.Z), 2)), 4);
+
+            double norm = (l0 + l1 + l2 + r0 + r1 + r2) / 2.0;
+
             Joint[] joints = { head, neck, shoulderr, shoulderl, spinesh, elbowr, elbowl, wristr, wristl, handr, handl, thumbr, thumbl, tipr, tipl, hipr, hipl, spinebase, kneer, kneel };
             foreach(Joint j in joints){
-                msg += "" + Math.Round(j.Position.X, 5) + " " + Math.Round(j.Position.Y, 5) + " " + Math.Round(j.Position.Z, 5) + " ";
+                double msg_x = Math.Round((j.Position.X - neck.Position.X) / norm, 5);
+                double msg_y = Math.Round((j.Position.Y - neck.Position.Y) / norm, 5);
+                double msg_z = Math.Round((j.Position.Z - neck.Position.Z) / norm, 5);
+                msg += "" + msg_x + " " + msg_y + " " + msg_z + " ";
             }
-            Console.WriteLine(msgCount++ +" | " + msg.Length);
+            Console.WriteLine(msgCount++ +" | " + msg.Length + " | " );
+            /*
+            double l3 = Math.Round(Math.Sqrt(Math.Pow((elbowl.Position.X - tipl.Position.X), 2) + Math.Pow((elbowl.Position.Y - tipl.Position.Y), 2) + Math.Pow((elbowl.Position.Z - tipl.Position.Z), 2)), 4);
+            double r3 = Math.Round(Math.Sqrt(Math.Pow((elbowr.Position.X - tipr.Position.X), 2) + Math.Pow((elbowr.Position.Y - tipr.Position.Y), 2) + Math.Pow((elbowr.Position.Z - tipr.Position.Z), 2)), 4);
+            Console.WriteLine(l1 + " ..... " + r1 + " ............... " + l2 + " ..... " + r2);
+            Console.WriteLine(l3 + " ..... " + r3 + " ............... " + l0 + " ..... " + r0);
+            Console.WriteLine("............................................................" +
+                wristl.Position.X + " ..... " + wristl.Position.Y + " ..... " + wristl.Position.Z + " ............... " + wristr.Position.X + " ..... " + wristr.Position.Y + " ..... " + wristr.Position.Z);
+             * */
             return msg;
         }
 
