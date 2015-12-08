@@ -22,7 +22,8 @@ namespace Microsoft.Samples.Kinect.DiscreteGestureBasics
     using System.Windows.Controls;
     using Microsoft.Kinect;
     using Microsoft.Kinect.VisualGestureBuilder;
-
+   //#using Microsoft.Xna.Framework;
+    using SlimDX;
     /// <summary>
     /// Interaction logic for the MainWindow
     /// </summary>
@@ -50,8 +51,8 @@ namespace Microsoft.Samples.Kinect.DiscreteGestureBasics
 
         private bool startMode = false;
 
-        //############# PHRASE NAME ################
-        private String phrase_name = "carcrash";
+        //############# PHRASE NAME ########################### PHRASE NAME ########################## PHRASE NAME ########################################
+        private String phrase_name = "sample";
         /// <summary>
         /// Initializes a new instance of the MainWindow class
         /// </summary>
@@ -314,6 +315,7 @@ namespace Microsoft.Samples.Kinect.DiscreteGestureBasics
         private String prepareTcpMessage(Body body)
         {
             String msg = "";
+            /*
             Joint head = body.Joints[JointType.Head];               //3
             Joint neck = body.Joints[JointType.Neck];               //2
             Joint shoulderr = body.Joints[JointType.ShoulderRight]; //8
@@ -347,14 +349,35 @@ namespace Microsoft.Samples.Kinect.DiscreteGestureBasics
             double norm = (l0 + l1 + l2 + r0 + r1 + r2) / 2.0;
 
             Joint[] joints = { head, neck, shoulderr, shoulderl, spinesh, elbowr, elbowl, wristr, wristl, handr, handl, thumbr, thumbl, tipr, tipl, hipr, hipl, spinebase, kneer, kneel };
-            foreach(Joint j in joints){
-                double msg_x = Math.Round((j.Position.X - neck.Position.X) / norm, 5);
-                double msg_y = Math.Round((j.Position.Y - neck.Position.Y) / norm, 5);
-                double msg_z = Math.Round((j.Position.Z - neck.Position.Z) / norm, 5);
-                msg += "" + msg_x + " " + msg_y + " " + msg_z + " ";
+            */
+            JointType[] joint_types = {JointType.Head, JointType.Neck, JointType.ShoulderRight, JointType.ShoulderLeft, JointType.SpineShoulder, JointType.ElbowRight, JointType.ElbowLeft, JointType.WristRight, JointType.WristLeft, JointType.HandRight, JointType.HandLeft, JointType.ThumbRight, JointType.ThumbLeft, JointType.HandTipRight, JointType.HandTipLeft, JointType.HipRight, JointType.HipLeft, JointType.SpineBase };//, JointType.KneeRight, JointType.KneeLeft };
+            int joint_count = 0;
+            foreach (JointType j in joint_types)
+            {
+                Microsoft.Kinect.Vector4 quat = body.JointOrientations[j].Orientation;
+                double msg_w = Math.Round( quat.W, 7 );
+                double msg_x = Math.Round( quat.X, 7 );
+                double msg_y = Math.Round( quat.Y, 7 );
+                double msg_z = Math.Round( quat.Z, 7 );
+                //double msg_x = Math.Round((j.Position.X - neck.Position.X) / norm, 5);double msg_y = Math.Round((j.Position.Y - neck.Position.Y) / norm, 5);double msg_z = Math.Round((j.Position.Z - neck.Position.Z) / norm, 5);
+                msg += "" + msg_w + " " + msg_x + " " + msg_y + " " + msg_z + " ";
+                joint_count++;
             }
-            Console.WriteLine(msgCount++ +" | " + msg.Length + " | " );
+            //Console.WriteLine(msgCount++ +" | " + msg.Length + " | " + joint_count);
+
             /*
+            Microsoft.Kinect.Vector4 a = body.JointOrientations[JointType.ElbowLeft].Orientation;
+            SlimDX.Vector3 eul_a = convertFromQuaternionToEuler(a);
+            Microsoft.Kinect.Vector4 b = body.JointOrientations[JointType.WristLeft].Orientation;
+            SlimDX.Vector3 eul_b = convertFromQuaternionToEuler(b);
+
+            Console.Write("" + eul_a.X + " | " + eul_a.Y + " | " + eul_a.Z);
+            Console.WriteLine("  ||||||  " + eul_b.X + " | " + eul_b.Y + " | " + eul_b.Z);        
+
+            Console.WriteLine(a.W + " | " + b.W + " | " + c.W );
+            Console.WriteLine(a.X + " | " + b.X + " | " + c.X );
+            Console.WriteLine(a.Y + " | " + b.Y + " | " + c.Y );
+            Console.WriteLine(a.Z + " | " + b.Z + " | " + c.Z );            
             double l3 = Math.Round(Math.Sqrt(Math.Pow((elbowl.Position.X - tipl.Position.X), 2) + Math.Pow((elbowl.Position.Y - tipl.Position.Y), 2) + Math.Pow((elbowl.Position.Z - tipl.Position.Z), 2)), 4);
             double r3 = Math.Round(Math.Sqrt(Math.Pow((elbowr.Position.X - tipr.Position.X), 2) + Math.Pow((elbowr.Position.Y - tipr.Position.Y), 2) + Math.Pow((elbowr.Position.Z - tipr.Position.Z), 2)), 4);
             Console.WriteLine(l1 + " ..... " + r1 + " ............... " + l2 + " ..... " + r2);
@@ -366,6 +389,60 @@ namespace Microsoft.Samples.Kinect.DiscreteGestureBasics
         }
 
 
+        private SlimDX.Vector3 convertFromQuaternionToEuler(Microsoft.Kinect.Vector4 quat)
+        {
+            Matrix rot_m = Matrix.RotationQuaternion(new Quaternion(quat.W, quat.X, quat.Y, quat.Z));
+            SlimDX.Vector4 rot_m_row1 = rot_m.get_Rows(0);
+            SlimDX.Vector4 rot_m_row2 = rot_m.get_Rows(1);
+            SlimDX.Vector4 rot_m_row3 = rot_m.get_Rows(2);
+            SlimDX.Vector4 rot_m_row4 = rot_m.get_Rows(3);
+            float m11 = rot_m_row1.W;
+            float m12 = rot_m_row1.X;
+            float m13 = rot_m_row1.Y;
+            float m14 = rot_m_row1.Z;
 
+            float m21 = rot_m_row2.W;
+            float m22 = rot_m_row2.X;
+            float m23 = rot_m_row2.Y;
+            float m24 = rot_m_row2.Z;
+
+            float m31 = rot_m_row3.W;
+            float m32 = rot_m_row3.X;
+            float m33 = rot_m_row3.Y;
+            float m34 = rot_m_row3.Z;
+
+            float m41 = rot_m_row4.W;
+            float m42 = rot_m_row4.X;
+            float m43 = rot_m_row4.Y;
+            float m44 = rot_m_row4.Z;
+
+
+            double _y = Math.Asin(Microsoft.Xna.Framework.MathHelper.Clamp(m13, -1, 1));
+            double _x = 0.0;
+            double _z = 0.0;
+            if (Math.Abs(m13) < 0.99999)
+            {
+
+                _x = Math.Atan2(-m23, m33);
+                _z = Math.Atan2(-m12, m11);
+
+            }
+            else
+            {
+
+                _x = Math.Atan2(m32, m22);
+                _z = 0;
+
+            }
+            SlimDX.Vector3 result = new SlimDX.Vector3(System.Convert.ToSingle(_x), System.Convert.ToSingle(_y), System.Convert.ToSingle(_z));
+            return result;
+        }
+
+        private float my_clamp(float val, float min, float max)
+        {
+            if (val.CompareTo(min) < 0) return min;
+            else if (val.CompareTo(max) > 0) return max;
+            else return val;
+        }
     }
 }
