@@ -29,7 +29,8 @@
         //--------------------------------------------------
 
         private ClientInterface(){
-            server = "143.215.199.231";
+            //server = "143.215.199.231";
+            server = "localhost";
             port = 5005;
             clientInstance = this;
             

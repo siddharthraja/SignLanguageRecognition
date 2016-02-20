@@ -21,9 +21,11 @@ namespace Microsoft.Samples.Kinect.DiscreteGestureBasics
     using System.Windows.Input;
     using System.Windows.Controls;
     using Microsoft.Kinect;
+    using System.Windows.Media;
+    using System.Windows.Shapes;
     using Microsoft.Kinect.VisualGestureBuilder;
    //#using Microsoft.Xna.Framework;
-    using SlimDX;
+    //using SlimDX;
     /// <summary>
     /// Interaction logic for the MainWindow
     /// </summary>
@@ -234,10 +236,27 @@ namespace Microsoft.Samples.Kinect.DiscreteGestureBasics
                 }
             }
 
+            if (this.bodies != null)
+            {
+                int maxBodies = this.kinectSensor.BodyFrameSource.BodyCount;
+                for (int i = 0; i < maxBodies; ++i)
+                {
+                    Body body = this.bodies[i];
+                    checkForHandLocation(body);
+                }
+            }          
+
+            SolidColorBrush greenSolidColor = new SolidColorBrush();
+            greenSolidColor.Color = Color.FromRgb(0, 255, 0);
+            SolidColorBrush redSolidColor = new SolidColorBrush();
+            redSolidColor.Color = Color.FromRgb(255, 0, 0);
+
             if (Keyboard.IsKeyDown(Key.Return))
             {
                 if (!startMode)
                 {
+                    rectangleFlag.Fill = greenSolidColor;
+                    textFlag.Text = "Started!";
                     startMode = true;
                     clientInterface.sendData("start");
                     clientInterface.sendData(phrase_name);
@@ -249,6 +268,8 @@ namespace Microsoft.Samples.Kinect.DiscreteGestureBasics
             {
                 if (startMode)
                 {
+                    rectangleFlag.Fill = redSolidColor;
+                    textFlag.Text = "Stopped.";
                     startMode = false;
                     clientInterface.sendData("end");
                     Console.WriteLine("\nEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE\n");
@@ -309,6 +330,69 @@ namespace Microsoft.Samples.Kinect.DiscreteGestureBasics
                     }
                 }
             }
+        }
+
+        bool raisedLeftHand = false;
+        private String checkForHandLocation(Body body)
+        {
+            SolidColorBrush greenSolidColor = new SolidColorBrush();
+            greenSolidColor.Color = Color.FromRgb(0, 255, 0);
+            SolidColorBrush redSolidColor = new SolidColorBrush();
+            redSolidColor.Color = Color.FromRgb(255, 0, 0);
+
+            Joint handr = body.Joints[JointType.HandRight];         //11
+            Joint handl = body.Joints[JointType.HandLeft];          //7
+            Joint thumbr = body.Joints[JointType.ThumbRight];       //24
+            Joint thumbl = body.Joints[JointType.ThumbLeft];        //22
+            Joint tipr = body.Joints[JointType.HandTipRight];       //23
+            Joint tipl = body.Joints[JointType.HandTipLeft];        //21
+
+            Joint hipr = body.Joints[JointType.HipRight];           //16
+            Joint hipl = body.Joints[JointType.HipLeft];            //12
+            Joint spinebase = body.Joints[JointType.SpineBase];     //0
+            Joint spinemid = body.Joints[JointType.SpineMid];
+
+            double spineDifferenceY = Math.Abs(spinebase.Position.Y - spinemid.Position.Y);
+            double distFromBase = (spineDifferenceY * 2.0) / 3.0; //Take 2/3rds the distance from the spine base.
+            double threshold = spinebase.Position.Y + distFromBase;
+
+            double handlY = handl.Position.Y;
+            double handrY = handr.Position.Y;
+
+            if (threshold > handrY)
+            {
+                //Console.WriteLine("YESS!");
+                rectangleFlag.Fill = redSolidColor;
+                if (textFlag.Text == "Stopped.")
+                {
+                    //First time, when beginning
+                    textFlag.Text = "Ready!";
+                }
+                else if (textFlag.Text == "Started!")
+                {
+                    if (!raisedLeftHand)
+                    {
+                        //Erase the session data
+                        textFlag.Text = "Erased data, and ready!";
+                        raisedLeftHand = false;
+                    } else if (raisedLeftHand)
+                    {
+                        //Save the session data
+                        textFlag.Text = "Saved data, and ready!";
+                        raisedLeftHand = false;
+                    }
+                    
+                }
+            } else if (threshold < handrY && textFlag.Text != "Stopped.")
+            {
+                rectangleFlag.Fill = greenSolidColor;
+                textFlag.Text = "Started!";
+                if (threshold < handlY)
+                {
+                    raisedLeftHand = true;
+                }
+            }
+            return "";
         }
 
         private static int msgCount = 0;
@@ -398,7 +482,7 @@ namespace Microsoft.Samples.Kinect.DiscreteGestureBasics
             return msg;
         }
 
-
+        /*
         private SlimDX.Vector3 convertFromQuaternionToEuler(Microsoft.Kinect.Vector4 quat)
         {
             Matrix rot_m = Matrix.RotationQuaternion(new Quaternion(quat.W, quat.X, quat.Y, quat.Z));
@@ -447,6 +531,7 @@ namespace Microsoft.Samples.Kinect.DiscreteGestureBasics
             SlimDX.Vector3 result = new SlimDX.Vector3(System.Convert.ToSingle(_x), System.Convert.ToSingle(_y), System.Convert.ToSingle(_z));
             return result;
         }
+        */
 
         private float my_clamp(float val, float min, float max)
         {

@@ -48,6 +48,9 @@
                 <RowDefinition />
             </Grid.RowDefinitions>
 
+            <Rectangle Grid.Column="0" Grid.Row="1" Margin="81,10,0,72" HorizontalAlignment="Center" VerticalAlignment="Center" Height="102" Width="100" Name="rectangleFlag" Fill="Red"></Rectangle>
+            <TextBlock Text="Stopped." TextAlignment="Center" TextWrapping="Wrap" Margin="38,117,119,39" Foreground="{StaticResource MediumGreyBrush}" FontFamily="Segoe UI" FontSize="14" Grid.Row="1" Name="textFlag" Grid.ColumnSpan="2"/>
+
             <StackPanel Orientation="Vertical" Grid.Column="2" Grid.RowSpan="3" Margin="20 10 0 10" HorizontalAlignment="Center" VerticalAlignment="Center">
                 <Viewbox x:Name="kinectBodyViewbox">
                     <Image Source="{Binding ImageSource}" Stretch="UniformToFill" />
