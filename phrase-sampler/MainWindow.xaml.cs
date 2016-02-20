@@ -52,7 +52,7 @@ namespace Microsoft.Samples.Kinect.DiscreteGestureBasics
         private bool startMode = false;
 
         //############# PHRASE NAME ########################### PHRASE NAME ########################## PHRASE NAME ########################################
-        private String phrase_name = "sample";
+        private String phrase_name = "boygirl";
         /// <summary>
         /// Initializes a new instance of the MainWindow class
         /// </summary>
@@ -315,7 +315,7 @@ namespace Microsoft.Samples.Kinect.DiscreteGestureBasics
         private String prepareTcpMessage(Body body)
         {
             String msg = "";
-            /*
+            
             Joint head = body.Joints[JointType.Head];               //3
             Joint neck = body.Joints[JointType.Neck];               //2
             Joint shoulderr = body.Joints[JointType.ShoulderRight]; //8
@@ -338,7 +338,7 @@ namespace Microsoft.Samples.Kinect.DiscreteGestureBasics
             Joint spinebase = body.Joints[JointType.SpineBase];     //0
             Joint kneer = body.Joints[JointType.KneeRight];         //17
             Joint kneel = body.Joints[JointType.KneeLeft];          //13
-
+            
             double l0 = Math.Round(Math.Sqrt(Math.Pow((neck.Position.X - shoulderl.Position.X), 2) + Math.Pow((neck.Position.Y - shoulderl.Position.Y), 2) + Math.Pow((neck.Position.Z - shoulderl.Position.Z), 2)), 5);
             double r0 = Math.Round(Math.Sqrt(Math.Pow((neck.Position.X - shoulderr.Position.X), 2) + Math.Pow((neck.Position.Y - shoulderr.Position.Y), 2) + Math.Pow((neck.Position.Z - shoulderr.Position.Z), 2)), 5);
             double l1 = Math.Round(Math.Sqrt(Math.Pow((shoulderl.Position.X - elbowl.Position.X), 2) + Math.Pow((shoulderl.Position.Y - elbowl.Position.Y), 2) + Math.Pow((shoulderl.Position.Z - elbowl.Position.Z), 2)), 5);
@@ -349,7 +349,16 @@ namespace Microsoft.Samples.Kinect.DiscreteGestureBasics
             double norm = (l0 + l1 + l2 + r0 + r1 + r2) / 2.0;
 
             Joint[] joints = { head, neck, shoulderr, shoulderl, spinesh, elbowr, elbowl, wristr, wristl, handr, handl, thumbr, thumbl, tipr, tipl, hipr, hipl, spinebase, kneer, kneel };
-            */
+            String msg_points = "";
+            foreach(Joint j in joints){
+                msg_points += "" + Math.Round(j.Position.X, 5) + " " + Math.Round(j.Position.Y, 5) + " " + Math.Round(j.Position.Z, 5) + " ";
+            }
+            Console.WriteLine(msgCount++ +" | " + msg.Length);
+
+
+
+            //------------------------------------------------------------------------------------------------------------------------------------
+            //------------------------------------------------------------------------------------------------------------------------------------
             JointType[] joint_types = {JointType.Head, JointType.Neck, JointType.ShoulderRight, JointType.ShoulderLeft, JointType.SpineShoulder, JointType.ElbowRight, JointType.ElbowLeft, JointType.WristRight, JointType.WristLeft, JointType.HandRight, JointType.HandLeft, JointType.ThumbRight, JointType.ThumbLeft, JointType.HandTipRight, JointType.HandTipLeft, JointType.HipRight, JointType.HipLeft, JointType.SpineBase };//, JointType.KneeRight, JointType.KneeLeft };
             int joint_count = 0;
             foreach (JointType j in joint_types)
@@ -385,6 +394,7 @@ namespace Microsoft.Samples.Kinect.DiscreteGestureBasics
             Console.WriteLine("............................................................" +
                 wristl.Position.X + " ..... " + wristl.Position.Y + " ..... " + wristl.Position.Z + " ............... " + wristr.Position.X + " ..... " + wristr.Position.Y + " ..... " + wristr.Position.Z);
              * */
+            msg = msg + " ||| " + msg_points;
             return msg;
         }
 
