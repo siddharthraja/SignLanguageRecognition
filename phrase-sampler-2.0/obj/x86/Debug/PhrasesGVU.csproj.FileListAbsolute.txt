@@ -1,0 +1,75 @@
+C:\Users\ASLR\Documents\GitHub\PhrasesGVU\bin\x86\Debug\PhrasesGVU.exe.config
+C:\Users\ASLR\Documents\GitHub\PhrasesGVU\bin\x86\Debug\PhrasesGVU.exe
+C:\Users\ASLR\Documents\GitHub\PhrasesGVU\bin\x86\Debug\PhrasesGVU.pdb
+C:\Users\ASLR\Documents\GitHub\PhrasesGVU\bin\x86\Debug\Microsoft.Kinect.VisualGestureBuilder.dll
+C:\Users\ASLR\Documents\GitHub\PhrasesGVU\bin\x86\Debug\Microsoft.Kinect.VisualGestureBuilder.xml
+C:\Users\ASLR\Documents\GitHub\PhrasesGVU\obj\x86\Debug\PhrasesGVU.csprojResolveAssemblyReference.cache
+C:\Users\ASLR\Documents\GitHub\PhrasesGVU\obj\x86\Debug\MainWindow.g.cs
+C:\Users\ASLR\Documents\GitHub\PhrasesGVU\obj\x86\Debug\App.g.cs
+C:\Users\ASLR\Documents\GitHub\PhrasesGVU\obj\x86\Debug\PhrasesGVU_Content.g.cs
+C:\Users\ASLR\Documents\GitHub\PhrasesGVU\obj\x86\Debug\GeneratedInternalTypeHelper.g.cs
+C:\Users\ASLR\Documents\GitHub\PhrasesGVU\obj\x86\Debug\PhrasesGVU_MarkupCompile.cache
+C:\Users\ASLR\Documents\GitHub\PhrasesGVU\obj\x86\Debug\PhrasesGVU_MarkupCompile.lref
+C:\Users\ASLR\Documents\GitHub\PhrasesGVU\obj\x86\Debug\MainWindow.baml
+C:\Users\ASLR\Documents\GitHub\PhrasesGVU\obj\x86\Debug\PhrasesGVU.g.resources
+C:\Users\ASLR\Documents\GitHub\PhrasesGVU\obj\x86\Debug\Microsoft.Samples.Kinect.DiscreteGestureBasics.Properties.Resources.resources
+C:\Users\ASLR\Documents\GitHub\PhrasesGVU\obj\x86\Debug\PhrasesGVU.csproj.GenerateResource.Cache
+C:\Users\ASLR\Documents\GitHub\PhrasesGVU\obj\x86\Debug\PhrasesGVU.exe
+C:\Users\ASLR\Documents\GitHub\PhrasesGVU\obj\x86\Debug\PhrasesGVU.pdb
+C:\Users\ASLR\Documents\GitHub\PhrasesGVU\bin\x86\Debug\Database\bg.gbd
+C:\Users\ASLR\Documents\GitHub\PhrasesGVU\bin\x86\Debug\Database\ct.gbd
+C:\Users\ASLR\Documents\GitHub\PhrasesGVU\bin\x86\Debug\Database\bg1.gbd
+C:\Users\ASLR\Documents\GitHub\PhrasesGVU\bin\x86\Debug\Database\sw1.gbd
+C:\Users\ASLR\Documents\GitHub\PhrasesGVU\bin\x86\Debug\Database\sw2.gbd
+C:\Users\ASLR\Documents\GitHub\PhrasesGVU\bin\x86\Debug\Database\ct2.gbd
+D:\My Doc\SEMESTER 3\PhrasesGVU-2015-10-21\PhrasesGVU\bin\x86\Debug\PhrasesGVU.exe.config
+D:\My Doc\SEMESTER 3\PhrasesGVU-2015-10-21\PhrasesGVU\obj\x86\Debug\PhrasesGVU.exe
+D:\My Doc\SEMESTER 3\PhrasesGVU-2015-10-21\PhrasesGVU\obj\x86\Debug\PhrasesGVU.pdb
+D:\My Doc\SEMESTER 3\PhrasesGVU-2015-10-21\PhrasesGVU\bin\x86\Debug\Database\bg.gbd
+D:\My Doc\SEMESTER 3\PhrasesGVU-2015-10-21\PhrasesGVU\bin\x86\Debug\Database\ct.gbd
+D:\My Doc\SEMESTER 3\PhrasesGVU-2015-10-21\PhrasesGVU\bin\x86\Debug\Database\bg1.gbd
+D:\My Doc\SEMESTER 3\PhrasesGVU-2015-10-21\PhrasesGVU\bin\x86\Debug\Database\sw1.gbd
+D:\My Doc\SEMESTER 3\PhrasesGVU-2015-10-21\PhrasesGVU\bin\x86\Debug\Database\sw2.gbd
+D:\My Doc\SEMESTER 3\PhrasesGVU-2015-10-21\PhrasesGVU\bin\x86\Debug\Database\ct2.gbd
+D:\My Doc\SEMESTER 3\PhrasesGVU-2015-10-21\PhrasesGVU\bin\x86\Debug\PhrasesGVU.exe
+D:\My Doc\SEMESTER 3\PhrasesGVU-2015-10-21\PhrasesGVU\bin\x86\Debug\PhrasesGVU.pdb
+D:\My Doc\SEMESTER 3\PhrasesGVU-2015-10-21\PhrasesGVU\bin\x86\Debug\Microsoft.Kinect.VisualGestureBuilder.dll
+D:\My Doc\SEMESTER 3\PhrasesGVU-2015-10-21\PhrasesGVU\bin\x86\Debug\Microsoft.Kinect.VisualGestureBuilder.xml
+D:\My Doc\SEMESTER 3\PhrasesGVU-2015-10-21\PhrasesGVU\obj\x86\Debug\PhrasesGVU.csprojResolveAssemblyReference.cache
+D:\My Doc\SEMESTER 3\PhrasesGVU-2015-10-21\PhrasesGVU\obj\x86\Debug\MainWindow.g.cs
+D:\My Doc\SEMESTER 3\PhrasesGVU-2015-10-21\PhrasesGVU\obj\x86\Debug\App.g.cs
+D:\My Doc\SEMESTER 3\PhrasesGVU-2015-10-21\PhrasesGVU\obj\x86\Debug\PhrasesGVU_Content.g.cs
+D:\My Doc\SEMESTER 3\PhrasesGVU-2015-10-21\PhrasesGVU\obj\x86\Debug\GeneratedInternalTypeHelper.g.cs
+D:\My Doc\SEMESTER 3\PhrasesGVU-2015-10-21\PhrasesGVU\obj\x86\Debug\PhrasesGVU_MarkupCompile.cache
+D:\My Doc\SEMESTER 3\PhrasesGVU-2015-10-21\PhrasesGVU\obj\x86\Debug\PhrasesGVU_MarkupCompile.lref
+D:\My Doc\SEMESTER 3\PhrasesGVU-2015-10-21\PhrasesGVU\obj\x86\Debug\MainWindow.baml
+D:\My Doc\SEMESTER 3\PhrasesGVU-2015-10-21\PhrasesGVU\obj\x86\Debug\PhrasesGVU.g.resources
+D:\My Doc\SEMESTER 3\PhrasesGVU-2015-10-21\PhrasesGVU\obj\x86\Debug\Microsoft.Samples.Kinect.DiscreteGestureBasics.Properties.Resources.resources
+D:\My Doc\SEMESTER 3\PhrasesGVU-2015-10-21\PhrasesGVU\obj\x86\Debug\PhrasesGVU.csproj.GenerateResource.Cache
+D:\My Doc\ASL\PhrasesGVU-2015-10-21\PhrasesGVU\bin\x86\Debug\PhrasesGVU.exe.config
+D:\My Doc\ASL\PhrasesGVU-2015-10-21\PhrasesGVU\obj\x86\Debug\PhrasesGVU.exe
+D:\My Doc\ASL\PhrasesGVU-2015-10-21\PhrasesGVU\obj\x86\Debug\PhrasesGVU.pdb
+C:\Users\Sid\Documents\GitHub\phrases-sign-language\bin\x86\Debug\phrases-sign-language.exe.config
+C:\Users\Sid\Documents\GitHub\phrases-sign-language\bin\x86\Debug\Database\bg.gbd
+C:\Users\Sid\Documents\GitHub\phrases-sign-language\bin\x86\Debug\Database\ct.gbd
+C:\Users\Sid\Documents\GitHub\phrases-sign-language\bin\x86\Debug\Database\bg1.gbd
+C:\Users\Sid\Documents\GitHub\phrases-sign-language\bin\x86\Debug\Database\sw1.gbd
+C:\Users\Sid\Documents\GitHub\phrases-sign-language\bin\x86\Debug\Database\sw2.gbd
+C:\Users\Sid\Documents\GitHub\phrases-sign-language\bin\x86\Debug\Database\ct2.gbd
+C:\Users\Sid\Documents\GitHub\phrases-sign-language\bin\x86\Debug\phrases-sign-language.exe
+C:\Users\Sid\Documents\GitHub\phrases-sign-language\bin\x86\Debug\phrases-sign-language.pdb
+C:\Users\Sid\Documents\GitHub\phrases-sign-language\bin\x86\Debug\Microsoft.Kinect.VisualGestureBuilder.dll
+C:\Users\Sid\Documents\GitHub\phrases-sign-language\bin\x86\Debug\Microsoft.Kinect.VisualGestureBuilder.xml
+C:\Users\Sid\Documents\GitHub\phrases-sign-language\obj\x86\Debug\PhrasesGVU.csprojResolveAssemblyReference.cache
+C:\Users\Sid\Documents\GitHub\phrases-sign-language\obj\x86\Debug\MainWindow.g.cs
+C:\Users\Sid\Documents\GitHub\phrases-sign-language\obj\x86\Debug\App.g.cs
+C:\Users\Sid\Documents\GitHub\phrases-sign-language\obj\x86\Debug\phrases-sign-language_Content.g.cs
+C:\Users\Sid\Documents\GitHub\phrases-sign-language\obj\x86\Debug\GeneratedInternalTypeHelper.g.cs
+C:\Users\Sid\Documents\GitHub\phrases-sign-language\obj\x86\Debug\phrases-sign-language_MarkupCompile.cache
+C:\Users\Sid\Documents\GitHub\phrases-sign-language\obj\x86\Debug\phrases-sign-language_MarkupCompile.lref
+C:\Users\Sid\Documents\GitHub\phrases-sign-language\obj\x86\Debug\MainWindow.baml
+C:\Users\Sid\Documents\GitHub\phrases-sign-language\obj\x86\Debug\phrases-sign-language.g.resources
+C:\Users\Sid\Documents\GitHub\phrases-sign-language\obj\x86\Debug\Microsoft.Samples.Kinect.DiscreteGestureBasics.Properties.Resources.resources
+C:\Users\Sid\Documents\GitHub\phrases-sign-language\obj\x86\Debug\PhrasesGVU.csproj.GenerateResource.Cache
+C:\Users\Sid\Documents\GitHub\phrases-sign-language\obj\x86\Debug\phrases-sign-language.exe
+C:\Users\Sid\Documents\GitHub\phrases-sign-language\obj\x86\Debug\phrases-sign-language.pdb
