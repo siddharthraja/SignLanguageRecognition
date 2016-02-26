@@ -53,9 +53,9 @@ namespace Microsoft.Samples.Kinect.DiscreteGestureBasics
         private ClientInterface clientInterface = null;
 
         private bool startMode = false;
-
+        private bool leftHanded = false;
         //############# PHRASE NAME ########################### PHRASE NAME ########################## PHRASE NAME ########################################
-        private String phrase_name = "boygirl";
+        private String phrase_name = "Black_spider_in_white_flowers";
         /// <summary>
         /// Initializes a new instance of the MainWindow class
         /// </summary>
@@ -270,7 +270,21 @@ namespace Microsoft.Samples.Kinect.DiscreteGestureBasics
                     double handlY = handl.Position.Y;
                     double handrY = handr.Position.Y;
 
-                    if (threshold > handrY)
+                    double trig_hand, non_trig_hand;
+
+                    leftHanded = true;
+                    if (leftHanded)
+                    {
+                        trig_hand = handlY;
+                        non_trig_hand = handrY;
+                    }
+                    else
+                    {
+                        trig_hand = handrY;
+                        non_trig_hand = handlY;
+                    }
+
+                    if (threshold > trig_hand)
                     {
                         //Console.WriteLine("YESS!");
                         rectangleFlag.Fill = rSolidColor;
@@ -302,7 +316,7 @@ namespace Microsoft.Samples.Kinect.DiscreteGestureBasics
 
                         }
                     }
-                    else if (threshold < handrY && textFlag.Text != "Stopped.")
+                    else if (threshold < trig_hand && textFlag.Text != "Stopped.")
                     {
                         //Begin the data collection.
                         if (!startMode)
@@ -315,7 +329,7 @@ namespace Microsoft.Samples.Kinect.DiscreteGestureBasics
                         }
                         rectangleFlag.Fill = gSolidColor;
                         textFlag.Text = "Started!";
-                        if (threshold < handlY)
+                        if (threshold < non_trig_hand)
                         {
                             raisedLeftHand = true;
                         }

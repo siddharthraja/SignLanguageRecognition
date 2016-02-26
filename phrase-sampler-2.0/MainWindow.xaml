@@ -33,7 +33,7 @@
             <RowDefinition Height="*" />
             <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
-        <TextBlock Grid.Row="0" Margin="0,0,299,0" HorizontalAlignment="Right" VerticalAlignment="Bottom" Foreground="{StaticResource MediumGreyBrush}" FontWeight="Bold" FontFamily="Segoe UI" FontSize="18" Text="Phrase Catcher" Width="122" RenderTransformOrigin="-0.604,0.506"/>
+        <TextBlock Grid.Row="0" Margin="0,0,281,0.2" HorizontalAlignment="Right" VerticalAlignment="Bottom" Foreground="{StaticResource MediumGreyBrush}" FontWeight="Bold" FontFamily="Segoe UI" FontSize="18" Text="Phrase Catcher" Width="140" RenderTransformOrigin="-0.604,0.506"/>
         <Image Grid.Row="0" Source="Images\Status.png" Stretch="None" HorizontalAlignment="Center" Margin="662,0,10,5" RenderTransformOrigin="1.776,0.356" Width="50" />
 
         <Grid x:Name="contentGrid" Grid.Row="1" RenderTransformOrigin="0.33,0.522" Margin="0,5,0,0" >
@@ -51,7 +51,7 @@
                        " VerticalAlignment="Top" HorizontalAlignment="Right" Width="100"/>
             <Rectangle Grid.Column="0" Margin="0,82,81,0" HorizontalAlignment="Center" VerticalAlignment="Center" Height="102" Width="100" Name="rectangleFlag" Fill="Red"/>
             <TextBlock Text="Stopped." TextAlignment="Center" TextWrapping="Wrap" Margin="0,0,0,108" Foreground="{StaticResource MediumGreyBrush}" FontWeight="Bold" FontFamily="Segoe UI" FontSize="14" Grid.Row="1" Name="textFlag" HorizontalAlignment="Left" Width="100" Height="71" VerticalAlignment="Bottom"/>
-            <Button Content="Delete Last"  FontWeight="Bold" FontSize="16" Name="prevDeleteButton" Margin="0,109,80,0" Grid.Column="1" HorizontalAlignment="Right" Width="100" Height="75" VerticalAlignment="Top" />
+            <Button Content="Delete Last"  FontWeight="Bold" FontSize="16" Name="prevDeleteButton" Margin="0,100,70.4,0" Grid.Column="1" HorizontalAlignment="Right" Width="100" Height="75" VerticalAlignment="Top" />
             <!--
             <Button Content="Change Phrase"  FontWeight="Bold" FontSize="16" Name="phraseNameChanger" Margin="0,0,0,54" Grid.Row="1" HorizontalAlignment="Right" Width="131" Height="72" VerticalAlignment="Bottom" />
             <TextBlock Text="Current Phrase: " Height="20" TextAlignment="Center" TextWrapping="Wrap" Margin="-13,135,109,29" Foreground="{StaticResource MediumGreyBrush}" FontWeight="Bold" FontFamily="Segoe UI" FontSize="14" Grid.Row="1" Name="phraseName" Grid.ColumnSpan="2"/>
