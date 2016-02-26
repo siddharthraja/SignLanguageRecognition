@@ -47,11 +47,13 @@
                 <RowDefinition />
                 <RowDefinition />
             </Grid.RowDefinitions>
-            <TextBlock Text="RECORDING STATUS" TextAlignment="Center" TextWrapping="Wrap" Margin="0,42,81,0" Foreground="{StaticResource MediumGreyBrush}" FontWeight="Bold" FontFamily="Segoe UI" FontSize="14" Name="simpleLabel1" Height="40
+            <TextBlock Text="RECORDING STATUS" TextAlignment="Center" TextWrapping="Wrap" Margin="0,2,41,0" Foreground="{StaticResource MediumGreyBrush}" FontWeight="Bold" FontFamily="Segoe UI" FontSize="14" Name="simpleLabel1" Height="40
                        " VerticalAlignment="Top" HorizontalAlignment="Right" Width="100"/>
-            <Rectangle Grid.Column="0" Margin="0,82,81,0" HorizontalAlignment="Center" VerticalAlignment="Center" Height="102" Width="100" Name="rectangleFlag" Fill="Red"/>
-            <TextBlock Text="Stopped." TextAlignment="Center" TextWrapping="Wrap" Margin="0,0,0,108" Foreground="{StaticResource MediumGreyBrush}" FontWeight="Bold" FontFamily="Segoe UI" FontSize="14" Grid.Row="1" Name="textFlag" HorizontalAlignment="Left" Width="100" Height="71" VerticalAlignment="Bottom"/>
-            <Button Content="Delete Last"  FontWeight="Bold" FontSize="16" Name="prevDeleteButton" Margin="0,100,70.4,0" Grid.Column="1" HorizontalAlignment="Right" Width="100" Height="75" VerticalAlignment="Top" />
+            <Rectangle Grid.Column="0" Margin="40,42,41,40" HorizontalAlignment="Center" VerticalAlignment="Center" Height="102" Width="100" Name="rectangleFlag" Fill="Red"/>
+            <TextBlock Text="Stopped." TextAlignment="Center" TextWrapping="Wrap" Margin="40,0,0,148" Foreground="{StaticResource MediumGreyBrush}" FontWeight="Bold" FontFamily="Segoe UI" FontSize="14" Name="textFlag" HorizontalAlignment="Left" Width="100" Height="71" VerticalAlignment="Bottom" Grid.RowSpan="2"/>
+            <Button Content="Delete Last"  FontWeight="Bold" FontSize="16" Name="prevDeleteButton" Margin="0,10,41,0" HorizontalAlignment="Right" Width="100" Height="75" VerticalAlignment="Top" Grid.Row="1" />
+            <ToggleButton Name="dominantHand" Margin="0,110,0,0" HorizontalAlignment="Right" Grid.Row="1" Width="181" Content="Toggle Dominant Hand" FontWeight="Bold" FontFamily="Segoe UI" FontSize="14"/>
+            <TextBlock Text="Right Handed." TextAlignment="Center" TextWrapping="Wrap" Margin="40,0,0,104" Foreground="{StaticResource MediumGreyBrush}" FontWeight="Bold" FontFamily="Segoe UI" FontSize="14" Name="dominantHandText" HorizontalAlignment="Left" Width="100" Height="71" VerticalAlignment="Bottom" Grid.Row="2"/>
             <!--
             <Button Content="Change Phrase"  FontWeight="Bold" FontSize="16" Name="phraseNameChanger" Margin="0,0,0,54" Grid.Row="1" HorizontalAlignment="Right" Width="131" Height="72" VerticalAlignment="Bottom" />
             <TextBlock Text="Current Phrase: " Height="20" TextAlignment="Center" TextWrapping="Wrap" Margin="-13,135,109,29" Foreground="{StaticResource MediumGreyBrush}" FontWeight="Bold" FontFamily="Segoe UI" FontSize="14" Grid.Row="1" Name="phraseName" Grid.ColumnSpan="2"/>

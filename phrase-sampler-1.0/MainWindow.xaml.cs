@@ -272,7 +272,18 @@ namespace Microsoft.Samples.Kinect.DiscreteGestureBasics
 
                     double trig_hand, non_trig_hand;
 
-                    leftHanded = true;
+                    bool value = (bool) dominantHand.IsChecked;
+                    if (value)
+                    {
+                        leftHanded = true;
+                        dominantHandText.Text = "Left Handed.";
+                    }
+                    else
+                    {
+                        leftHanded = false;
+                        dominantHandText.Text = "Right Handed.";
+                    }
+
                     if (leftHanded)
                     {
                         trig_hand = handlY;

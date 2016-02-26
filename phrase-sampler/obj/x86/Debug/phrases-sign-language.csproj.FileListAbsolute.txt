@@ -48,3 +48,11 @@ C:\Users\Sid\Documents\GitHub\SignLanguageRecognition\phrase-sampler\obj\x86\Deb
 C:\Users\Sid\Documents\GitHub\SignLanguageRecognition\phrase-sampler\bin\x86\Debug\MathNet.Numerics.dll
 C:\Users\Sid\Documents\GitHub\SignLanguageRecognition\phrase-sampler\bin\x86\Debug\MathNet.Numerics.xml
 C:\Users\Sid\Documents\GitHub\SignLanguageRecognition\phrase-sampler\obj\x86\Debug\phrases-sign-language.csprojResolveAssemblyReference.cache
+C:\Users\aslr\Documents\GitHub\SignLanguageRecognition\phrase-sampler\bin\x86\Debug\phrases-sign-language.exe.config
+C:\Users\aslr\Documents\GitHub\SignLanguageRecognition\phrase-sampler\obj\x86\Debug\phrases-sign-language.csprojResolveAssemblyReference.cache
+C:\Users\aslr\Documents\GitHub\SignLanguageRecognition\phrase-sampler\obj\x86\Debug\MainWindow.g.cs
+C:\Users\aslr\Documents\GitHub\SignLanguageRecognition\phrase-sampler\obj\x86\Debug\App.g.cs
+C:\Users\aslr\Documents\GitHub\SignLanguageRecognition\phrase-sampler\obj\x86\Debug\phrases-sign-language_Content.g.cs
+C:\Users\aslr\Documents\GitHub\SignLanguageRecognition\phrase-sampler\obj\x86\Debug\GeneratedInternalTypeHelper.g.cs
+C:\Users\aslr\Documents\GitHub\SignLanguageRecognition\phrase-sampler\obj\x86\Debug\phrases-sign-language_MarkupCompile.cache
+C:\Users\aslr\Documents\GitHub\SignLanguageRecognition\phrase-sampler\obj\x86\Debug\phrases-sign-language_MarkupCompile.lref
