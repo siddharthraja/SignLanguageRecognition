@@ -20,14 +20,14 @@ namespace Microsoft.Samples.Kinect.DiscreteGestureBasics
         /// <summary> Path to the gesture database that was trained with VGB </summary>
         private readonly string gestureSw1 = @"Database\sw1.gbd";
         private readonly string gestureSw2 = @"Database\sw2.gbd";
-        private readonly string gestureBg = @"Database\bg1.gbd";
+        //private readonly string gestureBg = @"Database\bg1.gbd";
         private readonly string gestureCt1 = @"Database\ct.gbd";
         private readonly string gestureCt2 = @"Database\ct2.gbd";
 
         /// <summary> Name of the discrete gesture in the database that we want to track </summary>
         private readonly string sw1Name = "sw1";
         private readonly string sw2Name = "sw2";
-        private readonly string bgName = "bg1";
+        //private readonly string bgName = "bg1";
         private readonly string ct1Name = "ct_Left";
         private readonly string ct2Name = "ct2";
 

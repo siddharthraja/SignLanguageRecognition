@@ -54,8 +54,17 @@ namespace Microsoft.Samples.Kinect.DiscreteGestureBasics
 
         private bool startMode = false;
         private bool leftHanded = false;
+
+        private string[] phrase_list = 
+        {
+            "Alligator_behind_black_wall","Alligator_behind_blue_wagon","Alligator_behind_chair","Alligator_behind_orange_wagon","Alligator_behind_wall","Alligator_in_box","Alligator_in_orange_flowers","Alligator_in_wagon","Alligator_on_bed","Alligator_on_blue_wall","Alligator_under_green_bed","Black_Alligator_behind_orange_wagon","Black_cat_behind_green_bed","Black_cat_in_blue_wagon","Black_cat_on_green_bed","Black_Snake_under_blue_chair","Black_Spider_in_white_flowers","Blue_Alligator_on_green_wall","Blue_Spider_on_green_box","cat_behind__orange_bed","Cat_behind_bed","Cat_behind_box","Cat_behind_flowers","Cat_on_blue_bed","Cat_on_green_wall","Cat_on_wall","Cat_under_blue_bed","Cat_under_chair","cat_under_orange_chair","Green_Alligator_under_blue_flowers_(hanging_flower_vine)","Green_Snake_under_blue_chair","Green_snake_under_blue_chair","Green_Spider_under__orange_chair","Orange_Alligator_in_green__flowers","Orange_Snake_under_blue_flowers(hanging_flower_vine)","Orange_Spider_in_green_box","Orange_spider_under_green_flowers_(hanging_flower_vine)","Snake_behind_wall","Snake_in_flowers","Snake_in_green_wagon","Snake_on_box","Snake_under_bed","Snake_under_black_chair","Snake_under_blue_chair","Snake_under_blue_flowers(in_a_pot)","Snake_under_chair","Spider__under_bed","Spider_in__blue_box","Spider_in_box","Spider_in_green_box","Spider_in_orange_flowers","Spider_on_chair","Spider_on_wall","Spider_on_white_wall","Spider_under_blue_chair","Spider_under_wagon","White__snake_in__blue_flowers","White_Alligator_on_blue_wall","White_cat_in__green_box","White_cat_on_orange_wall"
+        };
+
+        private int current_phrase_index = 0;
+
+        private bool paused = false;
         //############# PHRASE NAME ########################### PHRASE NAME ########################## PHRASE NAME ########################################
-        private String phrase_name = "Black_spider_in_white_flowers";
+        private String phrase_name = "Alligator_behind_chair";
         /// <summary>
         /// Initializes a new instance of the MainWindow class
         /// </summary>
@@ -101,8 +110,8 @@ namespace Microsoft.Samples.Kinect.DiscreteGestureBasics
             //clientInterface.disconnect();
 
             // create a gesture detector for each body (6 bodies => 6 detectors) and create content controls to display results in the UI
-            int col0Row = 0;
-            int col1Row = 0;
+            //int col0Row = 0, col1Row = 0;
+
             int maxBodies = this.kinectSensor.BodyFrameSource.BodyCount;
             for (int i = 0; i < maxBodies; ++i)
             {
@@ -133,7 +142,11 @@ namespace Microsoft.Samples.Kinect.DiscreteGestureBasics
             }
 
             prevDeleteButton.Click += deletePreviousSample;
-
+            currentPhraseName.Text = (current_phrase_index+1) + " " + phrase_list[current_phrase_index];
+            phrase_name = phrase_list[current_phrase_index];
+            clientInterface.sendData("new_phrase");
+            clientInterface.sendData(phrase_name);
+            
         }
 
         /// <summary>
@@ -263,87 +276,95 @@ namespace Microsoft.Samples.Kinect.DiscreteGestureBasics
                     Joint spinebase = body.Joints[JointType.SpineBase];     //0
                     Joint spinemid = body.Joints[JointType.SpineMid];
 
-                    double spineDifferenceY = Math.Abs(spinebase.Position.Y - spinemid.Position.Y);
-                    double distFromBase = (spineDifferenceY * 2.0) / 3.0; //Take 2/3rds the distance from the spine base.
-                    double threshold = spinebase.Position.Y + distFromBase;
-
-                    double handlY = handl.Position.Y;
-                    double handrY = handr.Position.Y;
-
-                    double trig_hand, non_trig_hand;
-
-                    bool value = (bool) dominantHand.IsChecked;
-                    if (value)
+                    if(!paused)
                     {
-                        leftHanded = true;
-                        dominantHandText.Text = "Left Handed.";
-                    }
-                    else
-                    {
-                        leftHanded = false;
-                        dominantHandText.Text = "Right Handed.";
-                    }
+                        double spineDifferenceY = Math.Abs(spinebase.Position.Y - spinemid.Position.Y);
+                        double distFromBase = (spineDifferenceY * 2.0) / 3.0; //Take 2/3rds the distance from the spine base.
+                        double threshold = spinebase.Position.Y + distFromBase;
 
-                    if (leftHanded)
-                    {
-                        trig_hand = handlY;
-                        non_trig_hand = handrY;
-                    }
-                    else
-                    {
-                        trig_hand = handrY;
-                        non_trig_hand = handlY;
-                    }
+                        double handlY = handl.Position.Y;
+                        double handrY = handr.Position.Y;
 
-                    if (threshold > trig_hand)
-                    {
-                        //Console.WriteLine("YESS!");
-                        rectangleFlag.Fill = rSolidColor;
-                        if (textFlag.Text == "Stopped.")
+                        double trig_hand, non_trig_hand;
+
+                        bool value = (bool) dominantHand.IsChecked;
+                        if (value)
                         {
-                            //First time, when beginning
-                            textFlag.Text = "Ready!";
+                            leftHanded = true;
+                            dominantHandText.Text = "Left Handed.";
                         }
-                        else if (textFlag.Text == "Started!")
+                        else
                         {
-                            if (!raisedLeftHand)
-                            {
-                                //Erase the session data
-
-                                clientInterface.sendData("delete");
-                                startMode = false;
-                                textFlag.Text = "Erased data, and ready!";
-                                raisedLeftHand = false;
-                            }
-                            else if (raisedLeftHand)
-                            {
-                                //Save the session data
-                                startMode = false;
-                                clientInterface.sendData("end");
-                                Console.WriteLine("\nEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE\n");
-                                textFlag.Text = "Saved data, and ready!";
-                                raisedLeftHand = false;
-                            }
-
+                            leftHanded = false;
+                            dominantHandText.Text = "Right Handed.";
                         }
-                    }
-                    else if (threshold < trig_hand && textFlag.Text != "Stopped.")
-                    {
-                        //Begin the data collection.
-                        if (!startMode)
+
+                        if (leftHanded)
                         {
+                            trig_hand = handlY;
+                            non_trig_hand = handrY;
+                        }
+                        else
+                        {
+                            trig_hand = handrY;
+                            non_trig_hand = handlY;
+                        }
+
+                        if (threshold > trig_hand)
+                        {
+                            //Console.WriteLine("YESS!");
+                            rectangleFlag.Fill = rSolidColor;
+                            if (textFlag.Text == "Stopped.")
+                            {
+                                //First time, when beginning
+                                textFlag.Text = "Ready!";
+                            }
+                            else if (textFlag.Text == "Started!")
+                            {
+                                if (!raisedLeftHand)
+                                {
+                                    //Erase the session data
+
+                                    clientInterface.sendData("delete");
+                                    startMode = false;
+                                    textFlag.Text = "Erased data, and ready!";
+                                    raisedLeftHand = false;
+                                }
+                                else if (raisedLeftHand)
+                                {
+                                    //Save the session data
+                                    startMode = false;
+                                    clientInterface.sendData("end");
+                                    Console.WriteLine("\nEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE\n");
+                                    textFlag.Text = "Saved data, and ready!";
+                                    raisedLeftHand = false;
+                                }
+
+                            }
+                        }
+                        else if (threshold < trig_hand && textFlag.Text != "Stopped.")
+                        {
+                            //Begin the data collection.
+                            if (!startMode)
+                            {
+                                textFlag.Text = "Started!";
+                                startMode = true;
+                                clientInterface.sendData("start");
+                                clientInterface.sendData(phrase_name);
+                                Console.WriteLine("\nSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS\n");
+                            }
+                            rectangleFlag.Fill = gSolidColor;
                             textFlag.Text = "Started!";
-                            startMode = true;
-                            clientInterface.sendData("start");
-                            clientInterface.sendData(phrase_name);
-                            Console.WriteLine("\nSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS\n");
+                            if (threshold < non_trig_hand)
+                            {
+                                raisedLeftHand = true;
+                            }
                         }
-                        rectangleFlag.Fill = gSolidColor;
-                        textFlag.Text = "Started!";
-                        if (threshold < non_trig_hand)
-                        {
-                            raisedLeftHand = true;
-                        }
+
+                    }
+                    else
+                    {
+                        clientInterface.sendData("paused...");
                     }
                 }
             }
@@ -589,6 +610,37 @@ namespace Microsoft.Samples.Kinect.DiscreteGestureBasics
 
             return prompt.ShowDialog() == System.Windows.Forms.DialogResult.OK ? textBox.Text : "";
         }
+
+        private void nextPhrase_Click(object sender, RoutedEventArgs e)
+        {
+            current_phrase_index++;
+            if (current_phrase_index == phrase_list.Length)
+                current_phrase_index = 0;
+            currentPhraseName.Text = (current_phrase_index+1)+" "+phrase_list[current_phrase_index];
+            phrase_name = phrase_list[current_phrase_index];
+            clientInterface.sendData("new_phrase");
+            clientInterface.sendData(phrase_name);
+        }
+
+        private void pauseButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (!paused)
+            {
+                paused = true;
+                SolidColorBrush bSolidColor = new SolidColorBrush();
+                bSolidColor.Color = Color.FromRgb(0, 0, 0);
+                rectangleFlag.Fill = bSolidColor;
+            }
+            else
+            {
+                paused = false;
+                SolidColorBrush rSolidColor = new SolidColorBrush();
+                rSolidColor.Color = Color.FromRgb(255, 0, 0);
+                rectangleFlag.Fill = rSolidColor;
+            }
+        }
+
+
     }
 
 }
