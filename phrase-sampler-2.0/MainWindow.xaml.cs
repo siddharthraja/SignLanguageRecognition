@@ -75,6 +75,11 @@ namespace Microsoft.Samples.Kinect.DiscreteGestureBasics
         private int current_phrase_index = 0;
 
         private bool paused = false;
+
+        private ColorFrameWriter colorFrameWriter;
+
+        private int totalCapturedFrames_joints;
+        private int totalCapturedFrames_color;
         //############# PHRASE NAME ########################### PHRASE NAME ########################## PHRASE NAME ########################################
         private String phrase_name = "Alligator_behind_chair";
         /// <summary>
@@ -126,6 +131,10 @@ namespace Microsoft.Samples.Kinect.DiscreteGestureBasics
 
             // create a gesture detector for each body (6 bodies => 6 detectors) and create content controls to display results in the UI
             //int col0Row = 0, col1Row = 0;
+
+            this.colorFrameWriter = new ColorFrameWriter();
+            this.totalCapturedFrames_joints = 0;
+            this.totalCapturedFrames_color = 0;
 
             int maxBodies = this.kinectSensor.BodyFrameSource.BodyCount;
             for (int i = 0; i < maxBodies; ++i)
@@ -246,6 +255,18 @@ namespace Microsoft.Samples.Kinect.DiscreteGestureBasics
         // Handles the image and depth frame data arriving from the sensor
         private void Reader_MultiSourceFrameArrived(object sender, MultiSourceFrameArrivedEventArgs e)
         {
+            if (Keyboard.IsKeyDown(Key.Z))
+            {
+                if (!scrClicked)
+                    scrClicked = true;
+            }
+            if (Keyboard.IsKeyDown(Key.X))
+            {
+                if (scrClicked)
+                    scrClicked = false;
+            }
+            
+
             var reference = e.FrameReference.AcquireFrame();
             //ColorFrame tempFrame;
             /// Handle the colour frame
@@ -267,10 +288,11 @@ namespace Microsoft.Samples.Kinect.DiscreteGestureBasics
                 }
                 if (frame != null)
                 {
-                    if (!paused && startMode)
+                    if ((!paused && startMode) || scrClicked)
                     {              
                         int width = frame.FrameDescription.Width;
                         int height = frame.FrameDescription.Height;
+                       
                         PixelFormat format = PixelFormats.Bgr32;
 
                         byte[] pixels = new byte[width * height * ((PixelFormats.Bgr32.BitsPerPixel + 7) / 8)];
@@ -289,8 +311,8 @@ namespace Microsoft.Samples.Kinect.DiscreteGestureBasics
                         //imageQueue.Enqueue(BitmapFrame.Create(BitmapSource.Create(width, height, 96, 96, format, null, pixels, stride)));
                         //Thread.Sleep(100);
                         //_rw.ExitWriteLock();
-
-                        saveRGB(BitmapFrame.Create(BitmapSource.Create(width, height, 96, 96, format, null, pixels, stride)));
+                        this.colorFrameWriter.ProcessWrite(pixels);
+                        //saveRGB(BitmapFrame.Create(BitmapSource.Create(width, height, 96, 96, format, null, pixels, stride)));
                     }
                 }
             }
@@ -364,9 +386,10 @@ namespace Microsoft.Samples.Kinect.DiscreteGestureBasics
         /// Thread to push the RGB frames
         /// </summary>
         /// <param name="frame"></param>
-        static void saveRGB(BitmapFrame b)
+        private void saveRGB(BitmapFrame b)
         {
-            string myPhotos = "C:\\Users\\aslr\\aslr_data";//Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
+            /*
+            string myPhotos = "C:\\Users\\ASLR\\Documents\\z-aslr-data";//Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
             //Console.WriteLine(Environment.GetFolderPath(Environment.SpecialFolder.Desktop));
             //Console.WriteLine(myPhotos);
             string path = System.IO.Path.Combine(myPhotos, "Image_" + imageCounter + ".png");
@@ -398,10 +421,10 @@ namespace Microsoft.Samples.Kinect.DiscreteGestureBasics
                 Console.Write(details.ToString());
 
             }
-                
-                //if (path == null)
-                //    System.Console.WriteLine("Image was not taken.");
-                //return BitmapSource.Create(width, height, 96, 96, format, null, pixels, stride);
+            */
+            Console.WriteLine("Color..........." + totalCapturedFrames_color++);
+            //this.colorFrameWriter.ProcessWrite(b);
+
         }
 
         /// <summary>
@@ -566,27 +589,12 @@ namespace Microsoft.Samples.Kinect.DiscreteGestureBasics
                         {
                             
                             String msg = prepareTcpMessage(body);
-                            
-                            clientInterface.sendData(msg);
-                            /*
-                            GestureDetector gd = this.gestureDetectorList[i];
-                            if (gd.sw2Done)
+                            if (startMode)
                             {
-                                Console.WriteLine("SW2 DONE YAAAAYYYY!!!!");
-                                gd.sw1Done = gd.ct1Done  = gd.sw2Done = false;
-                                sign.Text = "A snake is behind the wall!";
-                                clientInterface.sendData("A snake is behind the wall!");
-                                clientInterface.disconnect();
+                                Console.WriteLine("Joints.........." + totalCapturedFrames_joints++);
                             }
-                            if (gd.ct2Done)
-                            {
-                                sign.Text = "A car crashes into the tree!";
-                                Console.WriteLine("CT2 DONE YAAAAYYYY!!!!");
-                                gd.sw1Done = gd.ct1Done = gd.ct2Done = false;
-                                clientInterface.sendData("A car crashes into the tree!");
-                                
-                            } */   
-                            //Console.WriteLine("FRAME COUNT: " + this.gestureDetectorList[i].frameCount);
+                            clientInterface.sendData(msg);
+
                         }
                            
                         // if the current body TrackingId changed, update the corresponding gesture detector with the new value
@@ -654,8 +662,6 @@ namespace Microsoft.Samples.Kinect.DiscreteGestureBasics
             }
             Console.WriteLine(msgCount++ +" | " + msg.Length);
 
-
-
             //------------------------------------------------------------------------------------------------------------------------------------
             //------------------------------------------------------------------------------------------------------------------------------------
             JointType[] joint_types = {JointType.Head, JointType.Neck, JointType.ShoulderRight, JointType.ShoulderLeft, JointType.SpineShoulder, JointType.ElbowRight, JointType.ElbowLeft, JointType.WristRight, JointType.WristLeft, JointType.HandRight, JointType.HandLeft, JointType.ThumbRight, JointType.ThumbLeft, JointType.HandTipRight, JointType.HandTipLeft, JointType.HipRight, JointType.HipLeft, JointType.SpineBase };//, JointType.KneeRight, JointType.KneeLeft };
@@ -673,80 +679,10 @@ namespace Microsoft.Samples.Kinect.DiscreteGestureBasics
             }
             //Console.WriteLine(msgCount++ +" | " + msg.Length + " | " + joint_count);
 
-            /*
-            Microsoft.Kinect.Vector4 a = body.JointOrientations[JointType.ElbowLeft].Orientation;
-            SlimDX.Vector3 eul_a = convertFromQuaternionToEuler(a);
-            Microsoft.Kinect.Vector4 b = body.JointOrientations[JointType.WristLeft].Orientation;
-            SlimDX.Vector3 eul_b = convertFromQuaternionToEuler(b);
-
-            Console.Write("" + eul_a.X + " | " + eul_a.Y + " | " + eul_a.Z);
-            Console.WriteLine("  ||||||  " + eul_b.X + " | " + eul_b.Y + " | " + eul_b.Z);        
-
-            Console.WriteLine(a.W + " | " + b.W + " | " + c.W );
-            Console.WriteLine(a.X + " | " + b.X + " | " + c.X );
-            Console.WriteLine(a.Y + " | " + b.Y + " | " + c.Y );
-            Console.WriteLine(a.Z + " | " + b.Z + " | " + c.Z );            
-            double l3 = Math.Round(Math.Sqrt(Math.Pow((elbowl.Position.X - tipl.Position.X), 2) + Math.Pow((elbowl.Position.Y - tipl.Position.Y), 2) + Math.Pow((elbowl.Position.Z - tipl.Position.Z), 2)), 4);
-            double r3 = Math.Round(Math.Sqrt(Math.Pow((elbowr.Position.X - tipr.Position.X), 2) + Math.Pow((elbowr.Position.Y - tipr.Position.Y), 2) + Math.Pow((elbowr.Position.Z - tipr.Position.Z), 2)), 4);
-            Console.WriteLine(l1 + " ..... " + r1 + " ............... " + l2 + " ..... " + r2);
-            Console.WriteLine(l3 + " ..... " + r3 + " ............... " + l0 + " ..... " + r0);
-            Console.WriteLine("............................................................" +
-                wristl.Position.X + " ..... " + wristl.Position.Y + " ..... " + wristl.Position.Z + " ............... " + wristr.Position.X + " ..... " + wristr.Position.Y + " ..... " + wristr.Position.Z);
-             * */
             msg = msg + " ||| " + msg_points;
             return msg;
         }
 
-        /*
-        private SlimDX.Vector3 convertFromQuaternionToEuler(Microsoft.Kinect.Vector4 quat)
-        {
-            Matrix rot_m = Matrix.RotationQuaternion(new Quaternion(quat.W, quat.X, quat.Y, quat.Z));
-            SlimDX.Vector4 rot_m_row1 = rot_m.get_Rows(0);
-            SlimDX.Vector4 rot_m_row2 = rot_m.get_Rows(1);
-            SlimDX.Vector4 rot_m_row3 = rot_m.get_Rows(2);
-            SlimDX.Vector4 rot_m_row4 = rot_m.get_Rows(3);
-            float m11 = rot_m_row1.W;
-            float m12 = rot_m_row1.X;
-            float m13 = rot_m_row1.Y;
-            float m14 = rot_m_row1.Z;
-
-            float m21 = rot_m_row2.W;
-            float m22 = rot_m_row2.X;
-            float m23 = rot_m_row2.Y;
-            float m24 = rot_m_row2.Z;
-
-            float m31 = rot_m_row3.W;
-            float m32 = rot_m_row3.X;
-            float m33 = rot_m_row3.Y;
-            float m34 = rot_m_row3.Z;
-
-            float m41 = rot_m_row4.W;
-            float m42 = rot_m_row4.X;
-            float m43 = rot_m_row4.Y;
-            float m44 = rot_m_row4.Z;
-
-
-            double _y = Math.Asin(Microsoft.Xna.Framework.MathHelper.Clamp(m13, -1, 1));
-            double _x = 0.0;
-            double _z = 0.0;
-            if (Math.Abs(m13) < 0.99999)
-            {
-
-                _x = Math.Atan2(-m23, m33);
-                _z = Math.Atan2(-m12, m11);
-
-            }
-            else
-            {
-
-                _x = Math.Atan2(m32, m22);
-                _z = 0;
-
-            }
-            SlimDX.Vector3 result = new SlimDX.Vector3(System.Convert.ToSingle(_x), System.Convert.ToSingle(_y), System.Convert.ToSingle(_z));
-            return result;
-        }
-        */
 
         private float my_clamp(float val, float min, float max)
         {
@@ -816,6 +752,19 @@ namespace Microsoft.Samples.Kinect.DiscreteGestureBasics
                 rSolidColor.Color = Color.FromRgb(255, 0, 0);
                 rectangleFlag.Fill = rSolidColor;
             }
+        }
+
+        private bool scrClicked = false;
+      
+        private void take_screenshot(object sender, RoutedEventArgs e)
+        {
+            scrClicked = true;
+            
+        }
+
+        private void off_screenshot(object sender, RoutedEventArgs e)
+        {
+            scrClicked = false;
         }
 
 

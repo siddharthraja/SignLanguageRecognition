@@ -68,6 +68,8 @@
             <Button Content="Next Phrase"  FontWeight="Bold" FontSize="16" x:Name="nextPhrase" Margin="0,100,41,0" HorizontalAlignment="Right" Width="100" Height="75" VerticalAlignment="Top" Grid.Row="2" Click="nextPhrase_Click"/>
             <TextBlock Text=" ... " TextAlignment="Left" TextWrapping="Wrap" Margin="44,0,0,25" Foreground="{StaticResource MediumGreyBrush}" FontWeight="Bold" FontFamily="Segoe UI" FontSize="14" x:Name="currentPhraseName" HorizontalAlignment="Left" Width="271" Height="31" VerticalAlignment="Bottom" Grid.Row="2" Grid.Column="2"/>
             <Button Content="PAUSE"  FontWeight="Bold" FontSize="16" x:Name="pauseButton" Margin="0,69,10,0" HorizontalAlignment="Right" Width="100" Height="75" VerticalAlignment="Top" Grid.Column="1" Click="pauseButton_Click"/>
+            <Button Content="On"  FontWeight="Bold" FontSize="16" x:Name="screenshot" Margin="0,100,71,0" HorizontalAlignment="Right" Width="52" Height="75" VerticalAlignment="Top" Grid.Row="2" Click="take_screenshot" Grid.Column="1"/>
+            <Button Content="Off"  FontWeight="Bold" FontSize="16" x:Name="screenshot_Copy" Margin="0,100,10,0" HorizontalAlignment="Right" Width="46" Height="75" VerticalAlignment="Top" Grid.Row="2" Click="off_screenshot" Grid.Column="1"/>
         </Grid>
 
         <StatusBar Grid.Row="2" HorizontalAlignment="Stretch" Name="statusBar" VerticalAlignment="Bottom" Background="White" Foreground="{StaticResource MediumGreyBrush}">

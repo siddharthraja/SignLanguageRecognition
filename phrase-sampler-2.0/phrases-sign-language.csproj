@@ -92,6 +92,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="WriterThread.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -101,6 +102,7 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="ClientInterface.cs" />
+    <Compile Include="ColorFrameWriter.cs" />
     <Compile Include="GestureDetector.cs" />
     <Compile Include="GestureResultView.cs" />
     <Compile Include="KinectBodyView.cs" />
