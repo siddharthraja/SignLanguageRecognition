@@ -13,37 +13,88 @@ namespace ImageFileConvertor
     {
         static void Main(string[] args)
         {
-            string rgbDirectory = "C:\\Users\\ASLR\\Documents\\z-aslr-data";
-            string[] rgbFilesList = Directory.GetFiles(rgbDirectory);
+            string directoryName = @"C:\Users\aslr\Documents\aslr-data\Alligator_behind_black_wall";
+            string colorDirectory = Path.Combine(directoryName, "color");
+            string depthDirectory = Path.Combine(directoryName, "depth");
+            string[] colorFilesList = Directory.GetFiles(colorDirectory);
+            string[] depthFilesList = Directory.GetFiles(depthDirectory);
             int count = 0;
-            foreach (string f in rgbFilesList){
-                System.Diagnostics.Debug.Write("\n" + f);
-                string filePath = rgbDirectory + "\\z_temp_" + (count++) + ".png";
-                
-                byte[] fileBytes = File.ReadAllBytes(f);
-                int width = 1920;
-                int height = 1080;
-                PixelFormat format = PixelFormats.Bgr32;
-                int stride = width * format.BitsPerPixel / 8;
-                BitmapFrame b = BitmapFrame.Create(BitmapSource.Create(width, height, 96, 96, format, null, fileBytes, stride));
-
-                using (FileStream sourceStream = new FileStream(filePath,
-                FileMode.Append, FileAccess.Write, FileShare.None,
-                bufferSize: 25000, useAsync: true))
+            foreach (string f in colorFilesList){
+                if (f != null && f.Length != 0)
                 {
-                    //await sourceStream.WriteAsync(encodedText, 0, encodedText.Length);
-                    BitmapEncoder encoder = new PngBitmapEncoder();
-                    //_rw.EnterReadLock();
-                    //encoder.Frames.Add(imageQueue.Dequeue());
-                    encoder.Frames.Add(b);
-                    //Thread.Sleep(100);
-                    //_rw.ExitReadLock();
+                    if (Path.GetExtension(f).Equals(".bytes"))
+                    {
+                        System.Diagnostics.Debug.Write("\n" + f);
+                        string filePath = colorDirectory + "\\z_temp_" + (count++) + ".png";
 
-                    encoder.Save(sourceStream);
-                    sourceStream.Flush();
-                    sourceStream.Close();
+                        byte[] fileBytes = File.ReadAllBytes(f);
+                        if (fileBytes != null && fileBytes.Length != 0) {
+                            int width = 1920;
+                            int height = 1080;
+                            PixelFormat format = PixelFormats.Bgr32;
+                            int stride = width * format.BitsPerPixel / 8;
+                            BitmapFrame b = BitmapFrame.Create(BitmapSource.Create(width, height, 96, 96, format, null, fileBytes, stride));
+
+                            using (FileStream sourceStream = new FileStream(filePath,
+                            FileMode.Append, FileAccess.Write, FileShare.None,
+                            bufferSize: 25000, useAsync: true))
+                            {
+                                //await sourceStream.WriteAsync(encodedText, 0, encodedText.Length);
+                                BitmapEncoder encoder = new PngBitmapEncoder();
+                                //_rw.EnterReadLock();
+                                //encoder.Frames.Add(imageQueue.Dequeue());
+                                encoder.Frames.Add(b);
+                                //Thread.Sleep(100);
+                                //_rw.ExitReadLock();
+
+                                encoder.Save(sourceStream);
+                                sourceStream.Flush();
+                                sourceStream.Close();
+                            }
+                        }
+                    }
                 }
                  
+            }
+
+            count = 0;
+            foreach (string f in depthFilesList)
+            {
+                if (f != null && f.Length != 0)
+                {
+                    if (Path.GetExtension(f).Equals(".bytes"))
+                    {
+                        System.Diagnostics.Debug.Write("\n" + f);
+                        string filePath = depthDirectory + "\\z_temp_" + (count++) + ".png";
+
+                        byte[] fileBytes = File.ReadAllBytes(f);
+                        if (fileBytes != null && fileBytes.Length != 0) {
+                            int width = 512;
+                            int height = 424;
+                            PixelFormat format = PixelFormats.Bgr32;
+                            int stride = width * format.BitsPerPixel / 8;
+                            BitmapFrame b = BitmapFrame.Create(BitmapSource.Create(width, height, 96, 96, format, null, fileBytes, stride));
+
+                            using (FileStream sourceStream = new FileStream(filePath,
+                            FileMode.Append, FileAccess.Write, FileShare.None,
+                            bufferSize: 25000, useAsync: true))
+                            {
+                                //await sourceStream.WriteAsync(encodedText, 0, encodedText.Length);
+                                BitmapEncoder encoder = new PngBitmapEncoder();
+                                //_rw.EnterReadLock();
+                                //encoder.Frames.Add(imageQueue.Dequeue());
+                                encoder.Frames.Add(b);
+                                //Thread.Sleep(100);
+                                //_rw.ExitReadLock();
+
+                                encoder.Save(sourceStream);
+                                sourceStream.Flush();
+                                sourceStream.Close();
+                            }
+                        }
+                    }
+                }
+
             }
 
         }

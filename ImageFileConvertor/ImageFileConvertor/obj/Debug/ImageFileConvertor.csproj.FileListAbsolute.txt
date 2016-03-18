@@ -4,3 +4,9 @@ C:\Users\ASLR\Documents\ImageFileConvertor\ImageFileConvertor\bin\Debug\ImageFil
 C:\Users\ASLR\Documents\ImageFileConvertor\ImageFileConvertor\bin\Debug\ImageFileConvertor.pdb
 C:\Users\ASLR\Documents\ImageFileConvertor\ImageFileConvertor\obj\Debug\ImageFileConvertor.exe
 C:\Users\ASLR\Documents\ImageFileConvertor\ImageFileConvertor\obj\Debug\ImageFileConvertor.pdb
+C:\Users\aslr\Documents\GitHub\SignLanguageRecognition\ImageFileConvertor\ImageFileConvertor\bin\Debug\ImageFileConvertor.exe.config
+C:\Users\aslr\Documents\GitHub\SignLanguageRecognition\ImageFileConvertor\ImageFileConvertor\obj\Debug\ImageFileConvertor.exe
+C:\Users\aslr\Documents\GitHub\SignLanguageRecognition\ImageFileConvertor\ImageFileConvertor\obj\Debug\ImageFileConvertor.pdb
+C:\Users\aslr\Documents\GitHub\SignLanguageRecognition\ImageFileConvertor\ImageFileConvertor\bin\Debug\ImageFileConvertor.exe
+C:\Users\aslr\Documents\GitHub\SignLanguageRecognition\ImageFileConvertor\ImageFileConvertor\bin\Debug\ImageFileConvertor.pdb
+C:\Users\aslr\Documents\GitHub\SignLanguageRecognition\ImageFileConvertor\ImageFileConvertor\obj\Debug\ImageFileConvertor.csprojResolveAssemblyReference.cache
