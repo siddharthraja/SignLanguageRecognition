@@ -92,7 +92,8 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="WriterThread.cs" />
+    <Compile Include="DepthFrameWriter.cs" />
+    <Compile Include="JointDataWriter.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>

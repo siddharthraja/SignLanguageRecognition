@@ -13,6 +13,12 @@ namespace Microsoft.Samples.Kinect.DiscreteGestureBasics
     public class ColorFrameWriter
     {
         private int image_count;
+        private string current_phrase;
+        public void setCurrentPhrase(string p)
+        {
+            current_phrase = p;
+        }
+
         public ColorFrameWriter()
         {
             // To Do
@@ -53,10 +59,9 @@ namespace Microsoft.Samples.Kinect.DiscreteGestureBasics
 
         public async void ProcessWrite(byte[] b)
         {
-            string filename = "temp_" + image_count + ".png";
+            string filename = current_phrase + "_color_" + image_count + ".bytes";
             image_count++;
-            string filePath = @"C:\\Users\\ASLR\\Documents\\z-aslr-data\\" + filename;
-            string text = "Hello World\r\n";
+            string filePath = @"C:\Users\aslr\Documents\aslr-data\" + current_phrase + "\\color\\" + filename;
 
             await WriteTextAsync(filePath, b);
         }
