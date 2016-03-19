@@ -80,9 +80,16 @@ namespace Microsoft.Samples.Kinect.DiscreteGestureBasics
         private DepthFrameWriter depthFrameWriter;
         private JointDataWriter jointDataWriter;
 
+        private String mainDir;
+
         private int totalCapturedFrames_joints;
         private int totalCapturedFrames_color;
         private int totalCapturedFrames_depth;
+
+        private Queue<byte[]> colorQueue = new Queue<byte[]>();
+        private Queue<ushort[]> depthQueue = new Queue<ushort[]>();
+        int dimension = 0, widthD = 0, heightD = 0;
+        ushort minDepth = 0, maxDepth = 0;
         //############# PHRASE NAME ########################### PHRASE NAME ########################## PHRASE NAME ########################################
 
         private String phrase_name = "Alligator_behind_chair";
@@ -178,13 +185,22 @@ namespace Microsoft.Samples.Kinect.DiscreteGestureBasics
             /*clientInterface.sendData("new_phrase");
             clientInterface.sendData(phrase_name);*/
 
-            String mainDir = System.IO.Path.Combine(@"C:\Users\aslr\Documents\aslr-data", phrase_name);
-            String colorDir = System.IO.Path.Combine(mainDir, "color");
-            String depthDir = System.IO.Path.Combine(mainDir, "depth");
-            //Console.WriteLine("&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&& " + kinect.DepthStream.FrameWidth);
+            //String mainDir = System.IO.Path.Combine(@"C:\Users\aslr\Documents\aslr-data", phrase_name);
+            //String colorDir = System.IO.Path.Combine(mainDir, "color");
+            //String depthDir = System.IO.Path.Combine(mainDir, "depth");
+            //Console.WriteLine("&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&& " + kinect.DepthStream.FrameWidth);\
+
+            mainDir = System.IO.Path.Combine(@"D:\z-alsr-data", phrase_name);
+            //String colorDir = System.IO.Path.Combine(mainDir, "color");
+            //String depthDir = System.IO.Path.Combine(mainDir, "depth");
             System.IO.Directory.CreateDirectory(mainDir);
-            System.IO.Directory.CreateDirectory(colorDir);
-            System.IO.Directory.CreateDirectory(depthDir);
+            //System.IO.Directory.CreateDirectory(colorDir);
+            //System.IO.Directory.CreateDirectory(depthDir);
+
+            //System.IO.Directory.CreateDirectory(mainDir);
+            //System.IO.Directory.CreateDirectory(colorDir);
+            //System.IO.Directory.CreateDirectory(depthDir);
+
             colorFrameWriter.setCurrentPhrase(phrase_name);
             depthFrameWriter.setCurrentPhrase(phrase_name);
             jointDataWriter.setCurrentPhrase(phrase_name);
@@ -267,7 +283,7 @@ namespace Microsoft.Samples.Kinect.DiscreteGestureBasics
                                                             : Properties.Resources.SensorNotAvailableStatusText;
         }
 
-        Stopwatch watch = new Stopwatch();
+        
 
         // Handles the image and depth frame data arriving from the sensor
         private void Reader_MultiSourceFrameArrived(object sender, MultiSourceFrameArrivedEventArgs e)
@@ -282,27 +298,12 @@ namespace Microsoft.Samples.Kinect.DiscreteGestureBasics
                 if (scrClicked)
                     scrClicked = false;
             }
-            
 
             var reference = e.FrameReference.AcquireFrame();
             //ColorFrame tempFrame;
             /// Handle the colour frame
             using (var frame = reference.ColorFrameReference.AcquireFrame())
             {
-                if (!watch.IsRunning)
-                {
-                    watch.Start();
-                }
-                if (watch.IsRunning)
-                {
-                    if (watch.ElapsedMilliseconds >= 1000)
-                    {
-                        System.Console.WriteLine("NUMBER OF FRAMES PER SECOND = " + imageCounter1);
-                        imageCounter1 = 0;
-                        watch.Stop();
-                        watch.Reset();
-                    }
-                }
                 if (frame != null)
                 {
                     if ((!paused && startMode) || scrClicked)
@@ -328,7 +329,8 @@ namespace Microsoft.Samples.Kinect.DiscreteGestureBasics
                         //imageQueue.Enqueue(BitmapFrame.Create(BitmapSource.Create(width, height, 96, 96, format, null, pixels, stride)));
                         //Thread.Sleep(100);
                         //_rw.ExitWriteLock();
-                        this.colorFrameWriter.ProcessWrite(pixels);
+                        colorQueue.Enqueue(pixels);
+                        //this.colorFrameWriter.ProcessWrite(pixels);
                         //saveRGB(BitmapFrame.Create(BitmapSource.Create(width, height, 96, 96, format, null, pixels, stride)));
                     }
                 }
@@ -341,21 +343,24 @@ namespace Microsoft.Samples.Kinect.DiscreteGestureBasics
                 {
                     if ((!paused && startMode) || scrClicked)
                     {
-                        int width = frame.FrameDescription.Width;
+                        widthD = frame.FrameDescription.Width;
                         //Console.WriteLine("!!!!!!!!!!!!!!!!!!%$^&***********************************" + width);
-                        int height = frame.FrameDescription.Height;
+                        heightD = frame.FrameDescription.Height;
                         //Console.WriteLine("!!!!!!!!!!!!!!!!!!%$^&****************************HIEIGHT*" + height);
 
                         PixelFormat format = PixelFormats.Bgr32;
 
-                        ushort minDepth = frame.DepthMinReliableDistance;
-                        ushort maxDepth = frame.DepthMaxReliableDistance;
+                        minDepth = frame.DepthMinReliableDistance;
+                        maxDepth = frame.DepthMaxReliableDistance;
 
-                        ushort[] pixelData = new ushort[width * height];
-                        byte[] pixels = new byte[width * height * (format.BitsPerPixel + 7) / 8];
-
+                        ushort[] pixelData = new ushort[widthD * heightD];
+                        //byte[] pixels = new byte[width * height * (format.BitsPerPixel + 7) / 8];
+                        dimension = widthD * heightD * (format.BitsPerPixel + 7) / 8;
                         frame.CopyFrameDataToArray(pixelData);
 
+                        depthQueue.Enqueue(pixelData);
+
+                        /*
                         int colorIndex = 0;
                         for (int depthIndex = 0; depthIndex < pixelData.Length; ++depthIndex)
                         {
@@ -372,6 +377,7 @@ namespace Microsoft.Samples.Kinect.DiscreteGestureBasics
 
                         int stride = width * format.BitsPerPixel / 8;
                         this.depthFrameWriter.ProcessWrite(pixels);
+                         * */
                     }
                     /*
                     BitmapEncoder encoder = new PngBitmapEncoder();
@@ -400,6 +406,49 @@ namespace Microsoft.Samples.Kinect.DiscreteGestureBasics
                     */
                 }
             }
+            //saveData(colorQueue, depthQueue, dimension, minDepth, maxDepth, widthD, heightD);
+        }
+
+        int session_number = 1;
+
+        public void saveData(Queue<byte[]> colorQueue, Queue<ushort[]> depthQueue, int depthArrDimension, ushort minDepth, ushort maxDepth, int widthD, int heightD) {
+            String filePathColor = mainDir + "\\" + session_number + "\\color\\";
+            System.IO.Directory.CreateDirectory(filePathColor);
+
+            String filePathDepth = mainDir + "\\" + session_number + "\\depth\\";
+            System.IO.Directory.CreateDirectory(filePathDepth);
+
+            int size = colorQueue.Count;
+            for (int x = 0; x < size; x++)
+            {
+                byte[] pixels = colorQueue.Dequeue();
+                this.colorFrameWriter.ProcessWrite(pixels, session_number);
+            }
+
+            int size2 = depthQueue.Count;
+            for (int x = 0; x < size2; x++)
+            {
+                ushort[] pixelData = depthQueue.Dequeue();
+                byte[] pixels = new byte[depthArrDimension];
+                int colorIndex = 0;
+                for (int depthIndex = 0; depthIndex < pixelData.Length; ++depthIndex)
+                {
+                    ushort depth = pixelData[depthIndex];
+
+                    byte intensity = (byte)(depth >= minDepth && depth <= maxDepth ? depth : 0);
+
+                    pixels[colorIndex++] = intensity; // Blue
+                    pixels[colorIndex++] = intensity; // Green
+                    pixels[colorIndex++] = intensity; // Red
+
+                    ++colorIndex;
+                }
+
+                PixelFormat format = PixelFormats.Bgr32;
+                int stride = widthD * format.BitsPerPixel / 8;
+                this.depthFrameWriter.ProcessWrite(pixels, session_number); 
+            }
+            session_number++;
         }
 
         static int imageCounter = 0;
@@ -549,7 +598,9 @@ namespace Microsoft.Samples.Kinect.DiscreteGestureBasics
                                 {
                                     //Erase the session data
 
-                                    this.jointDataWriter.deleteLastSample(); //clientInterface.sendData("delete");
+                                    this.jointDataWriter.deleteLastSample(session_number); //clientInterface.sendData("delete");
+                                    colorQueue.Clear();
+                                    depthQueue.Clear();
                                     startMode = false;
                                     textFlag.Text = "Erased data, and ready!";
                                     raisedLeftHand = false;
@@ -560,6 +611,7 @@ namespace Microsoft.Samples.Kinect.DiscreteGestureBasics
                                     startMode = false;
                                     this.jointDataWriter.endPhrase(); //clientInterface.sendData("end");
                                     Console.WriteLine("\nEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE\n");
+                                    saveData(colorQueue, depthQueue, dimension, minDepth, maxDepth, widthD, heightD);
                                     textFlag.Text = "Saved data, and ready!";
                                     raisedLeftHand = false;
                                 }
@@ -573,7 +625,9 @@ namespace Microsoft.Samples.Kinect.DiscreteGestureBasics
                             {
                                 textFlag.Text = "Started!";
                                 startMode = true;
-                                this.jointDataWriter.startNewPhrase(); //clientInterface.sendData("start");
+                                String filePath = mainDir + "\\" + session_number;
+                                System.IO.Directory.CreateDirectory(filePath);
+                                this.jointDataWriter.startNewPhrase(session_number); //clientInterface.sendData("start");
                                 //clientInterface.sendData(phrase_name);
                                 Console.WriteLine("\nSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS\n");
                             }
@@ -716,7 +770,7 @@ namespace Microsoft.Samples.Kinect.DiscreteGestureBasics
 
         private void deletePreviousSample(object sender, RoutedEventArgs e)
         {
-            this.jointDataWriter.deleteLastSample(); //clientInterface.sendData("delete");
+            this.jointDataWriter.deleteLastSample(session_number); //clientInterface.sendData("delete");
             startMode = false;
             textFlag.Text = "Erased previous sample, and ready!";
         }

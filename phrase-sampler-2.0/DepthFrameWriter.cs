@@ -13,6 +13,7 @@ namespace Microsoft.Samples.Kinect.DiscreteGestureBasics
     {
         private int image_count;
         private string current_phrase;
+        private int old_session_number;
         public void setCurrentPhrase(string p)
         {
             current_phrase = p;
@@ -21,6 +22,7 @@ namespace Microsoft.Samples.Kinect.DiscreteGestureBasics
         public DepthFrameWriter()
         {
             image_count = 1;
+            old_session_number = 0;
         }
         /*
         public async void ProcessWrite(BitmapFrame b)
@@ -55,11 +57,16 @@ namespace Microsoft.Samples.Kinect.DiscreteGestureBasics
         }
         */
 
-        public async void ProcessWrite(byte[] b)
+        public async void ProcessWrite(byte[] b, int session_number)
         {
+            if (session_number != old_session_number)
+            {
+                old_session_number = session_number;
+                image_count = 1;
+            }
             string filename = current_phrase + "_depth_" + image_count + ".bytes";
             image_count++;
-            string filePath = @"C:\Users\aslr\Documents\aslr-data\" + current_phrase + "\\depth\\" + filename;
+            string filePath = @"D:\z-alsr-data\" + current_phrase + "\\" + session_number + "\\depth\\" + filename;
 
             await WriteTextAsync(filePath, b);
         }

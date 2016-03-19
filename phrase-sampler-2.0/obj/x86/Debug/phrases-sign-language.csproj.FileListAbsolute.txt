@@ -169,4 +169,6 @@ C:\Users\aslr\Documents\GitHub\SignLanguageRecognition\phrase-sampler-2.0\obj\x8
 C:\Users\aslr\Documents\GitHub\SignLanguageRecognition\phrase-sampler-2.0\obj\x86\Debug\phrases-sign-language.g.resources
 C:\Users\aslr\Documents\GitHub\SignLanguageRecognition\phrase-sampler-2.0\obj\x86\Debug\Microsoft.Samples.Kinect.DiscreteGestureBasics.Properties.Resources.resources
 C:\Users\aslr\Documents\GitHub\SignLanguageRecognition\phrase-sampler-2.0\obj\x86\Debug\phrases-sign-language.csproj.GenerateResource.Cache
-C:\Users\ASLR\Documents\GitHub\SignLanguageRecognition\phrase-sampler-2.0\obj\x86\Debug\phrases-sign-language.csprojResolveAssemblyReference.cache
+C:\Users\aslr\Documents\GitHub\SignLanguageRecognition\phrase-sampler-2.0\bin\x86\Debug\Microsoft.Kinect.dll
+C:\Users\aslr\Documents\GitHub\SignLanguageRecognition\phrase-sampler-2.0\bin\x86\Debug\Microsoft.Kinect.xml
+C:\Users\aslr\Documents\GitHub\SignLanguageRecognition\phrase-sampler-2.0\obj\x86\Debug\phrases-sign-language.csprojResolveAssemblyReference.cache

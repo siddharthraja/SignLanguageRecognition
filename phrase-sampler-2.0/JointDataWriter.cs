@@ -47,7 +47,7 @@ namespace Microsoft.Samples.Kinect.DiscreteGestureBasics
             //}
         }
 
-        public void deleteLastSample()
+        public void deleteLastSample(int session_number)
         {
             //if (!this.paused){
                 if (this.sourceStream != null)
@@ -55,15 +55,16 @@ namespace Microsoft.Samples.Kinect.DiscreteGestureBasics
                     this.sourceStream.Close();
                 }
                 this.phrase_file_count--;
-                File.Delete(@"C:\Users\aslr\Documents\aslr-data\" + this.current_phrase + "\\" + this.current_phrase + "_" + this.phrase_file_count + ".txt");
+                File.Delete(@"D:\z-alsr-data\" + this.current_phrase + "\\" + session_number + "\\" + this.current_phrase + "_" + this.phrase_file_count + ".txt");
+                this.writeOn = false;
             //}
         }
 
-        public void startNewPhrase()
+        public void startNewPhrase(int session_number)
         {
             //if (!this.paused){
                 this.writeOn = true;
-                this.filePath = @"C:\Users\aslr\Documents\aslr-data\" + this.current_phrase + "\\" + this.current_phrase + "_" + this.phrase_file_count + ".txt";
+                this.filePath = @"D:\z-alsr-data\" + this.current_phrase + "\\" + session_number +  "\\" + this.current_phrase + "_" + this.phrase_file_count + ".txt";
                 this.sourceStream = new FileStream(this.filePath, FileMode.Append, FileAccess.Write, FileShare.None, bufferSize: 25000, useAsync: true);
             //}
         }
