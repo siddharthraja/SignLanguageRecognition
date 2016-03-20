@@ -75,6 +75,8 @@ namespace Microsoft.Samples.Kinect.DiscreteGestureBasics
 
         private int current_phrase_index = 0;
 
+        private int session_number;
+
         private bool paused = false;
 
         private ColorFrameWriter colorFrameWriter;
@@ -150,6 +152,8 @@ namespace Microsoft.Samples.Kinect.DiscreteGestureBasics
             this.totalCapturedFrames_joints = 0;
             this.totalCapturedFrames_color = 0;
             this.totalCapturedFrames_depth = 0;
+
+            session_number = 1;
 
             int maxBodies = this.kinectSensor.BodyFrameSource.BodyCount;
             for (int i = 0; i < maxBodies; ++i)
@@ -430,8 +434,6 @@ namespace Microsoft.Samples.Kinect.DiscreteGestureBasics
             }
             //saveData(colorQueue, depthQueue, dimension, minDepth, maxDepth, widthD, heightD);
         }
-
-        int session_number = 1;
 
         public void saveData(Queue<byte[]> colorQueue, Queue<ushort[]> depthQueue, int depthArrDimension, ushort minDepth, ushort maxDepth, int widthD, int heightD) {
             String filePathColor = mainDir + "\\" + session_number + "\\color\\";
@@ -853,6 +855,9 @@ namespace Microsoft.Samples.Kinect.DiscreteGestureBasics
                 @"C:\Users\aslr\Documents\GitHub\SignLanguageRecognition\phrase-sampler-2.0\phrase_images", cleanedPhrase));
             image.EndInit();
             phraseImage.Source = image;
+
+            session_number = 1;
+            mainDir = System.IO.Path.Combine(@"D:\z-alsr-data", phrase_name);
 
             Directory.CreateDirectory(System.IO.Path.Combine(@"D:\z-alsr-data", phrase_name));
             colorFrameWriter.setCurrentPhrase(phrase_name);
