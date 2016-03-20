@@ -28,12 +28,15 @@
     </Window.Resources>
 
     <Grid Margin="10 0 10 0">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
             <RowDefinition Height="*" />
             <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
-        <TextBlock Grid.Row="0" Margin="0,0,281,0.2" HorizontalAlignment="Right" VerticalAlignment="Bottom" Foreground="{StaticResource MediumGreyBrush}" FontWeight="Bold" FontFamily="Segoe UI" FontSize="18" Text="Phrase Catcher" Width="140" RenderTransformOrigin="-0.604,0.506"/>
+        <TextBlock Grid.Row="0" Margin="0,0,281,0" HorizontalAlignment="Right" VerticalAlignment="Bottom" Foreground="{StaticResource MediumGreyBrush}" FontWeight="Bold" FontFamily="Segoe UI" FontSize="18" Text="Phrase Catcher" Width="140" RenderTransformOrigin="-0.604,0.506"/>
         <Image Grid.Row="0" Source="Images\Status.png" Stretch="None" HorizontalAlignment="Center" Margin="662,0,10,5" RenderTransformOrigin="1.776,0.356" Width="50" />
 
         <Grid x:Name="contentGrid" Grid.Row="1" RenderTransformOrigin="0.33,0.522" Margin="0,5,0,0" >
@@ -67,6 +70,7 @@
             </StackPanel>
             <Button Content="Next Phrase"  FontWeight="Bold" FontSize="16" x:Name="nextPhrase" Margin="0,100,41,0" HorizontalAlignment="Right" Width="100" Height="75" VerticalAlignment="Top" Grid.Row="2" Click="nextPhrase_Click"/>
             <TextBlock Text=" ... " TextAlignment="Left" TextWrapping="Wrap" Margin="44,0,0,25" Foreground="{StaticResource MediumGreyBrush}" FontWeight="Bold" FontFamily="Segoe UI" FontSize="14" x:Name="currentPhraseName" HorizontalAlignment="Left" Width="271" Height="31" VerticalAlignment="Bottom" Grid.Row="2" Grid.Column="2"/>
+            <Image Name="phraseImage" Margin="157,0,10,17" Grid.ColumnSpan="2" Grid.Row="1"/>
             <Button Content="PAUSE"  FontWeight="Bold" FontSize="16" x:Name="pauseButton" Margin="0,69,10,0" HorizontalAlignment="Right" Width="100" Height="75" VerticalAlignment="Top" Grid.Column="1" Click="pauseButton_Click"/>
             <Button Content="On"  FontWeight="Bold" FontSize="16" x:Name="screenshot" Margin="0,100,71,0" HorizontalAlignment="Right" Width="52" Height="75" VerticalAlignment="Top" Grid.Row="2" Click="take_screenshot" Grid.Column="1"/>
             <Button Content="Off"  FontWeight="Bold" FontSize="16" x:Name="screenshot_Copy" Margin="0,100,10,0" HorizontalAlignment="Right" Width="46" Height="75" VerticalAlignment="Top" Grid.Row="2" Click="off_screenshot" Grid.Column="1"/>
