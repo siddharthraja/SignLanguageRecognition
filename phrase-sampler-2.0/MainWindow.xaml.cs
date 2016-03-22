@@ -185,7 +185,7 @@ namespace Microsoft.Samples.Kinect.DiscreteGestureBasics
             }
 
             prevDeleteButton.Click += deletePreviousSample;
-            currentPhraseName.Text = (current_phrase_index+1) + " " + phrase_list[current_phrase_index];
+            currentPhraseName.Text = phrase_list[current_phrase_index];
 
             String current_phrase = phrase_list[current_phrase_index];
             char[] delims = { '_' };
@@ -831,7 +831,7 @@ namespace Microsoft.Samples.Kinect.DiscreteGestureBasics
             current_phrase_index++;
             if (current_phrase_index == phrase_list.Length)
                 current_phrase_index = 0;
-            currentPhraseName.Text = (current_phrase_index+1)+" "+phrase_list[current_phrase_index];
+            currentPhraseName.Text = phrase_list[current_phrase_index];
             phrase_name = phrase_list[current_phrase_index];
             /*clientInterface.sendData("new_phrase");
             clientInterface.sendData(phrase_name);*/

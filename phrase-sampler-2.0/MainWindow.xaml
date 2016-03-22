@@ -3,7 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:local="clr-namespace:Microsoft.Samples.Kinect.DiscreteGestureBasics"
         Title="Discrete Gesture Basics"
-        Height="650" Width="750"
+        Height="1000" Width="1000"
         Closing="MainWindow_Closing">
     <Window.Resources>
         <SolidColorBrush x:Key="MediumGreyBrush" Color="#ff6e6e6e" />
@@ -36,44 +36,46 @@
             <RowDefinition Height="*" />
             <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
-        <TextBlock Grid.Row="0" Margin="0,0,281,0" HorizontalAlignment="Right" VerticalAlignment="Bottom" Foreground="{StaticResource MediumGreyBrush}" FontWeight="Bold" FontFamily="Segoe UI" FontSize="18" Text="Phrase Catcher" Width="140" RenderTransformOrigin="-0.604,0.506"/>
+        <TextBlock Grid.Row="0" Margin="0,0,427,0" HorizontalAlignment="Right" VerticalAlignment="Bottom" Foreground="{StaticResource MediumGreyBrush}" FontWeight="Bold" FontFamily="Segoe UI" FontSize="18" Text="Phrase Catcher" Width="140" RenderTransformOrigin="-0.604,0.506"/>
         <Image Grid.Row="0" Source="Images\Status.png" Stretch="None" HorizontalAlignment="Center" Margin="662,0,10,5" RenderTransformOrigin="1.776,0.356" Width="50" />
 
-        <Grid x:Name="contentGrid" Grid.Row="1" RenderTransformOrigin="0.33,0.522" Margin="0,5,0,0" >
+        <Grid x:Name="contentGrid" Grid.Row="1" RenderTransformOrigin="0.33,0.522" Margin="0,2,0,3" >
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="1*"/>
-                <ColumnDefinition Width="1*"/>
-                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition Width="243*"/>
+                <ColumnDefinition Width="243*"/>
+                <ColumnDefinition Width="103*"/>
+                <ColumnDefinition Width="383*"/>
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
-                <RowDefinition />
-                <RowDefinition />
-                <RowDefinition />
+                <RowDefinition Height="29*" />
+                <RowDefinition Height="273*"/>
+                <RowDefinition Height="301*" />
+                <RowDefinition Height="301*" />
             </Grid.RowDefinitions>
-            <TextBlock Text="RECORDING STATUS" TextAlignment="Center" TextWrapping="Wrap" Margin="0,2,41,0" Foreground="{StaticResource MediumGreyBrush}" FontWeight="Bold" FontFamily="Segoe UI" FontSize="14" Name="simpleLabel1" Height="40
-                       " VerticalAlignment="Top" HorizontalAlignment="Right" Width="100"/>
-            <Rectangle Grid.Column="0" Margin="40,42,41,40" HorizontalAlignment="Center" VerticalAlignment="Center" Height="102" Width="100" Name="rectangleFlag" Fill="Red"/>
-            <TextBlock Text="Stopped." TextAlignment="Center" TextWrapping="Wrap" Margin="40,0,0,148" Foreground="{StaticResource MediumGreyBrush}" FontWeight="Bold" FontFamily="Segoe UI" FontSize="14" Name="textFlag" HorizontalAlignment="Left" Width="100" Height="71" VerticalAlignment="Bottom" Grid.RowSpan="2"/>
-            <Button Content="Delete Last"  FontWeight="Bold" FontSize="16" Name="prevDeleteButton" Margin="0,52,41,0" HorizontalAlignment="Right" Width="100" Height="76" VerticalAlignment="Top" Grid.Row="1" />
-            <ToggleButton Name="dominantHand" Content="Switch Hand" Margin="0,176,41,119" HorizontalAlignment="Right" Grid.Row="1" Width="100" FontWeight="Bold" FontFamily="Segoe UI" FontSize="14" Grid.RowSpan="2"/>
-            <TextBlock Text="Right Handed." TextAlignment="Center" TextWrapping="Wrap" Margin="158,0,0,134" Foreground="{StaticResource MediumGreyBrush}" FontWeight="Bold" FontFamily="Segoe UI" FontSize="14" Name="dominantHandText" HorizontalAlignment="Left" Width="100" Height="31" VerticalAlignment="Bottom" Grid.Row="2" Grid.ColumnSpan="2"/>
+            <TextBlock Text="RECORDING STATUS" TextAlignment="Center" TextWrapping="Wrap" Margin="10,10,133,0" Foreground="{StaticResource MediumGreyBrush}" FontWeight="Bold" FontFamily="Segoe UI" FontSize="14" Name="simpleLabel1" Height="40
+                       " VerticalAlignment="Top" RenderTransformOrigin="0.35,1.225" Grid.RowSpan="2"/>
+            <Rectangle Grid.Column="0" Margin="10,28,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Height="102" Width="100" Name="rectangleFlag" Fill="Red" Grid.Row="1"/>
+            <TextBlock Text="Stopped." TextAlignment="Center" TextWrapping="Wrap" Margin="10,0,0,69" Foreground="{StaticResource MediumGreyBrush}" FontWeight="Bold" FontFamily="Segoe UI" FontSize="14" Name="textFlag" HorizontalAlignment="Left" Width="100" Height="70" VerticalAlignment="Bottom" Grid.Row="1"/>
+            <Button Content="Delete Last"  FontWeight="Bold" FontSize="16" Name="prevDeleteButton" Margin="0,215,133,0" HorizontalAlignment="Right" Width="100" Height="76" VerticalAlignment="Top" Grid.Row="3" />
+            <ToggleButton Name="dominantHand" Content="Switch Hand" Margin="0,215,0,11" HorizontalAlignment="Right" Grid.Row="3" Width="100" FontWeight="Bold" FontFamily="Segoe UI" FontSize="14"/>
+            <TextBlock Text="Right Handed." TextAlignment="Center" TextWrapping="Wrap" Margin="5,0,0,27" Foreground="{StaticResource MediumGreyBrush}" FontWeight="Bold" FontFamily="Segoe UI" FontSize="14" Name="dominantHandText" HorizontalAlignment="Left" Width="100" Height="31" VerticalAlignment="Bottom" Grid.Row="3" Grid.Column="1"/>
             <!--
             <Button Content="Change Phrase"  FontWeight="Bold" FontSize="16" Name="phraseNameChanger" Margin="0,0,0,54" Grid.Row="1" HorizontalAlignment="Right" Width="131" Height="72" VerticalAlignment="Bottom" />
             <TextBlock Text="Current Phrase: " Height="20" TextAlignment="Center" TextWrapping="Wrap" Margin="-13,135,109,29" Foreground="{StaticResource MediumGreyBrush}" FontWeight="Bold" FontFamily="Segoe UI" FontSize="14" Grid.Row="1" Name="phraseName" Grid.ColumnSpan="2"/>
             -->
-            <StackPanel Orientation="Vertical" Grid.Column="2" Grid.RowSpan="3" Margin="20 10 0 10" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <StackPanel Orientation="Vertical" Grid.Column="3" Margin="150,10,20,5" HorizontalAlignment="Right" VerticalAlignment="Bottom" Grid.Row="1">
                 <Viewbox x:Name="kinectBodyViewbox">
-                    <Image Source="{Binding ImageSource}" Stretch="UniformToFill" />
+                    <Image Source="{Binding ImageSource}" Stretch="Uniform" />
                 </Viewbox>
                 <TextBlock Text="Stand/Sit in front of the sensor to get tracked." TextWrapping="Wrap" Margin="5 10 5 5" Foreground="{StaticResource MediumGreyBrush}" FontFamily="Segoe UI" FontSize="14"/>
                 <TextBlock Name="sign" Text="" TextWrapping="Wrap" Margin="5 10 5 5" Foreground="{StaticResource MediumGreyBrush}" FontFamily="Segoe UI" FontSize="16"/>
             </StackPanel>
-            <Button Content="Next Phrase"  FontWeight="Bold" FontSize="16" x:Name="nextPhrase" Margin="0,100,41,0" HorizontalAlignment="Right" Width="100" Height="75" VerticalAlignment="Top" Grid.Row="2" Click="nextPhrase_Click"/>
-            <TextBlock Text=" ... " TextAlignment="Left" TextWrapping="Wrap" Margin="44,0,0,25" Foreground="{StaticResource MediumGreyBrush}" FontWeight="Bold" FontFamily="Segoe UI" FontSize="14" x:Name="currentPhraseName" HorizontalAlignment="Left" Width="271" Height="31" VerticalAlignment="Bottom" Grid.Row="2" Grid.Column="2"/>
-            <Image Name="phraseImage" Margin="157,0,10,17" Grid.ColumnSpan="2" Grid.Row="1"/>
-            <Button Content="PAUSE"  FontWeight="Bold" FontSize="16" x:Name="pauseButton" Margin="0,69,10,0" HorizontalAlignment="Right" Width="100" Height="75" VerticalAlignment="Top" Grid.Column="1" Click="pauseButton_Click"/>
-            <Button Content="On"  FontWeight="Bold" FontSize="16" x:Name="screenshot" Margin="0,100,71,0" HorizontalAlignment="Right" Width="52" Height="75" VerticalAlignment="Top" Grid.Row="2" Click="take_screenshot" Grid.Column="1"/>
-            <Button Content="Off"  FontWeight="Bold" FontSize="16" x:Name="screenshot_Copy" Margin="0,100,10,0" HorizontalAlignment="Right" Width="46" Height="75" VerticalAlignment="Top" Grid.Row="2" Click="off_screenshot" Grid.Column="1"/>
+            <Button Content="Next Phrase"  FontWeight="Bold" FontSize="16" x:Name="nextPhrase" Margin="0,216,243,10" HorizontalAlignment="Right" Width="100" Grid.Row="3" Click="nextPhrase_Click" Grid.Column="3"/>
+            <TextBlock Text=" ... " TextAlignment="Left" TextWrapping="Wrap" Margin="58,0,0,166" Foreground="{StaticResource MediumGreyBrush}" FontWeight="Bold" FontFamily="Segoe UI" FontSize="30" x:Name="currentPhraseName" HorizontalAlignment="Left" Width="622" Height="92" VerticalAlignment="Bottom" Grid.Row="3" Grid.ColumnSpan="4"/>
+            <Image Name="phraseImage" Margin="10,222,263,263" Grid.ColumnSpan="4" Grid.RowSpan="3" Grid.Row="1"/>
+            <Button Content="PAUSE"  FontWeight="Bold" FontSize="16" x:Name="pauseButton" Margin="0,216,376,10" HorizontalAlignment="Right" Width="100" Grid.Column="2" Click="pauseButton_Click" Grid.Row="3" Grid.ColumnSpan="2"/>
+            <Button Content="On"  FontWeight="Bold" FontSize="16" x:Name="screenshot" Margin="0,263,44,10" HorizontalAlignment="Right" Width="31" Grid.Row="3" Click="take_screenshot" Grid.Column="3"/>
+            <Button Content="Off"  FontWeight="Bold" FontSize="16" x:Name="screenshot_Copy" Margin="0,263,10,10" HorizontalAlignment="Right" Width="29" Grid.Row="3" Click="off_screenshot" Grid.Column="3"/>
         </Grid>
 
         <StatusBar Grid.Row="2" HorizontalAlignment="Stretch" Name="statusBar" VerticalAlignment="Bottom" Background="White" Foreground="{StaticResource MediumGreyBrush}">
