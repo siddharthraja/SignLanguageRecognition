@@ -55,7 +55,7 @@ namespace Microsoft.Samples.Kinect.DiscreteGestureBasics
                     this.sourceStream.Close();
                 }
                 this.phrase_file_count--;
-                File.Delete(@"D:\z-alsr-data\" + this.current_phrase + "\\" + session_number + "\\" + this.current_phrase + "_" + this.phrase_file_count + ".txt");
+                File.Delete(MainWindow.dataWritePath + this.current_phrase + "\\" + session_number + "\\" + this.current_phrase + "_" + this.phrase_file_count + ".txt");
                 this.writeOn = false;
             //}
         }
@@ -64,7 +64,7 @@ namespace Microsoft.Samples.Kinect.DiscreteGestureBasics
         {
             //if (!this.paused){
                 this.writeOn = true;
-                this.filePath = @"D:\z-alsr-data\" + this.current_phrase + "\\" + session_number +  "\\" + this.current_phrase + "_" + this.phrase_file_count + ".txt";
+                this.filePath = MainWindow.dataWritePath + this.current_phrase + "\\" + session_number + "\\" + this.current_phrase + "_" + this.phrase_file_count + ".txt";
                 this.sourceStream = new FileStream(this.filePath, FileMode.Append, FileAccess.Write, FileShare.None, bufferSize: 25000, useAsync: true);
             //}
         }

@@ -96,6 +96,8 @@ namespace Microsoft.Samples.Kinect.DiscreteGestureBasics
         //############# PHRASE NAME ########################### PHRASE NAME ########################## PHRASE NAME ########################################
 
         private String phrase_name = "Alligator_behind_chair";
+
+        public static readonly string dataWritePath = @"C:\Users\aslr\Documents\z-aslr-data\";
         /// <summary>
         /// Initializes a new instance of the MainWindow class
         /// </summary>
@@ -216,7 +218,7 @@ namespace Microsoft.Samples.Kinect.DiscreteGestureBasics
             //String depthDir = System.IO.Path.Combine(mainDir, "depth");
             //Console.WriteLine("&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&& " + kinect.DepthStream.FrameWidth);\
 
-            mainDir = System.IO.Path.Combine(@"D:\z-alsr-data", phrase_name);
+            mainDir = System.IO.Path.Combine(dataWritePath, phrase_name);
             //String colorDir = System.IO.Path.Combine(mainDir, "color");
             //String depthDir = System.IO.Path.Combine(mainDir, "depth");
             System.IO.Directory.CreateDirectory(mainDir);
@@ -857,9 +859,9 @@ namespace Microsoft.Samples.Kinect.DiscreteGestureBasics
             phraseImage.Source = image;
 
             session_number = 1;
-            mainDir = System.IO.Path.Combine(@"D:\z-alsr-data", phrase_name);
+            mainDir = System.IO.Path.Combine(dataWritePath, phrase_name);
 
-            Directory.CreateDirectory(System.IO.Path.Combine(@"D:\z-alsr-data", phrase_name));
+            Directory.CreateDirectory(System.IO.Path.Combine(dataWritePath, phrase_name));
             colorFrameWriter.setCurrentPhrase(phrase_name);
             depthFrameWriter.setCurrentPhrase(phrase_name);
             jointDataWriter.setCurrentPhrase(phrase_name);
