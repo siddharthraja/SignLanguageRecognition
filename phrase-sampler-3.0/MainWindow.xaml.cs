@@ -161,21 +161,32 @@ namespace Microsoft.Samples.Kinect.DiscreteGestureBasics
             this.framesCapturedInPhrase = 0;
             this.phrase_indices = new int[phrase_list.Length];
 
-            System.IO.StreamReader file =  new System.IO.StreamReader(@".\indices_state.txt");
-            String indices_line = file.ReadLine();
-            String[] indices_states = indices_line.Split(' ');
-            for (int i = 0; i < phrase_indices.Length; i++)
+            if (File.Exists(@".\indices_state.txt"))
             {
-                if (i >= indices_states.Length)
+                System.IO.StreamReader file = new System.IO.StreamReader(@".\indices_state.txt");
+                String indices_line = file.ReadLine();
+                String[] indices_states = indices_line.Split(' ');
+                for (int i = 0; i < phrase_indices.Length; i++)
+                {
+                    if (i >= indices_states.Length)
+                    {
+                        this.phrase_indices[i] = 0;
+                    }
+                    else
+                    {
+                        this.phrase_indices[i] = Int32.Parse(indices_states[i]);
+                    }
+
+                }
+            }
+            else
+            {
+                for (int i = 0; i < phrase_indices.Length; i++)
                 {
                     this.phrase_indices[i] = 0;
                 }
-                else
-                {
-                    this.phrase_indices[i] = Int32.Parse(indices_states[i]);
-                }
-                
             }
+
 
             session_number = 1;
 
