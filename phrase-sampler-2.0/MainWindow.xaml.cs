@@ -70,8 +70,7 @@ namespace Microsoft.Samples.Kinect.DiscreteGestureBasics
 
         private string[] phrase_list = 
         {
-            "Alligator_behind_black_wall","Alligator_behind_blue_wagon","Alligator_behind_chair","Alligator_behind_orange_wagon","Alligator_behind_wall","Alligator_in_box","Alligator_in_orange_flowers","Alligator_in_wagon","Alligator_on_bed","Alligator_on_blue_wall","Alligator_under_green_bed","Black_Alligator_behind_orange_wagon","Black_cat_behind_green_bed","Black_cat_in_blue_wagon","Black_cat_on_green_bed","Black_Snake_under_blue_chair","Black_Spider_in_white_flowers","Blue_Alligator_on_green_wall","Blue_Spider_on_green_box","cat_behind_orange_bed","Cat_behind_bed","Cat_behind_box","Cat_behind_flowers","Cat_on_blue_bed","Cat_on_green_wall","Cat_on_wall","Cat_under_blue_bed","Cat_under_chair","cat_under_orange_chair","Green_Alligator_under_blue_flowers","Green_Snake_under_blue_chair","Green_snake_under_blue_chair","Green_Spider_under_orange_chair","Orange_Alligator_in_green_flowers","Orange_Snake_under_blue_flowers","Orange_Spider_in_green_box","Orange_spider_under_green_flowers","Snake_behind_wall","Snake_in_flowers","Snake_in_green_wagon","Snake_on_box","Snake_under_bed","Snake_under_black_chair","Snake_under_blue_chair","Snake_under_blue_flowers","Snake_under_chair","Spider_under_bed","Spider_in_blue_box","Spider_in_box","Spider_in_green_box","Spider_in_orange_flowers","Spider_on_chair","Spider_on_wall","Spider_on_white_wall","Spider_under_blue_chair","Spider_under_wagon","White_snake_in_blue_flowers","White_Alligator_on_blue_wall","White_cat_in_green_box","White_cat_on_orange_wall"
-        };
+            "Alligator_behind_black_wall","Alligator_behind_blue_wagon","Alligator_behind_chair","Alligator_behind_orange_wagon","Alligator_behind_wall","Alligator_in_box","Alligator_in_orange_flowers","Alligator_in_wagon","Alligator_on_bed","Alligator_on_blue_wall","Alligator_under_green_bed","Black_Alligator_behind_orange_wagon","Black_cat_behind_green_bed","Black_cat_in_blue_wagon","Black_cat_on_green_bed","Black_Snake_under_blue_chair","Black_Spider_in_white_flowers","Blue_Alligator_on_green_wall","Blue_Spider_on_green_box","cat_behind_orange_bed","Cat_behind_bed","Cat_behind_box","Cat_behind_flowers","Cat_on_blue_bed","Cat_on_green_wall","Cat_on_wall","Cat_under_blue_bed","Cat_under_chair","cat_under_orange_chair"};//,"Green_Alligator_under_blue_flowers","Green_Snake_under_blue_chair","Green_snake_under_blue_chair","Green_Spider_under_orange_chair","Orange_Alligator_in_green_flowers","Orange_Snake_under_blue_flowers","Orange_Spider_in_green_box","Orange_spider_under_green_flowers","Snake_behind_wall","Snake_in_flowers","Snake_in_green_wagon","Snake_on_box","Snake_under_bed","Snake_under_black_chair","Snake_under_blue_chair","Snake_under_blue_flowers","Snake_under_chair","Spider_under_bed","Spider_in_blue_box","Spider_in_box","Spider_in_green_box","Spider_in_orange_flowers","Spider_on_chair","Spider_on_wall","Spider_on_white_wall","Spider_under_blue_chair","Spider_under_wagon","White_snake_in_blue_flowers","White_Alligator_on_blue_wall","White_cat_in_green_box","White_cat_on_orange_wall"        };
 
         private int current_phrase_index = 0;
 
@@ -761,7 +760,7 @@ namespace Microsoft.Samples.Kinect.DiscreteGestureBasics
             Joint[] joints = { head, neck, shoulderr, shoulderl, spinesh, elbowr, elbowl, wristr, wristl, handr, handl, thumbr, thumbl, tipr, tipl, hipr, hipl, spinebase, kneer, kneel };
             String msg_points = "";
             foreach(Joint j in joints){
-                msg_points += "" + Math.Round(j.Position.X, 5) + " " + Math.Round(j.Position.Y, 5) + " " + Math.Round(j.Position.Z, 5) + " ";
+                msg_points += "" + Math.Round(j.Position.X / norm, 5) + " " + Math.Round(j.Position.Y / norm, 5) + " " + Math.Round(j.Position.Z / norm, 5) + " ";
             }
             Console.WriteLine(msgCount++ +" | " + msg.Length);
 
@@ -830,7 +829,10 @@ namespace Microsoft.Samples.Kinect.DiscreteGestureBasics
 
         private void nextPhrase_Click(object sender, RoutedEventArgs e)
         {
-            current_phrase_index++;
+            Random rnd = new Random();
+            int temp_idx = rnd.Next(0, phrase_list.Length-1);
+            //Console.WriteLine("$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ " + temp_idx);
+            current_phrase_index = temp_idx;
             if (current_phrase_index == phrase_list.Length)
                 current_phrase_index = 0;
             currentPhraseName.Text = phrase_list[current_phrase_index];
