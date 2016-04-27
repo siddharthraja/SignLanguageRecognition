@@ -74,6 +74,8 @@ namespace Microsoft.Samples.Kinect.DiscreteGestureBasics
         };
 
         private int[] phrase_indices = null;
+        private int[] random_phrase_indices;
+        private int random_phrase_inx_counter = 0;
 
         private int current_phrase_index = 0;
 
@@ -187,6 +189,13 @@ namespace Microsoft.Samples.Kinect.DiscreteGestureBasics
                 }
             }
 
+            random_phrase_indices = new int[phrase_list.Length];
+            random_phrase_inx_counter = 0;
+            for (int i = 0; i < phrase_list.Length; i++)
+            {
+                random_phrase_indices[i] = i;
+            }
+            new Random().Shuffle(random_phrase_indices);
 
             session_number = 1;
 
@@ -896,12 +905,13 @@ namespace Microsoft.Samples.Kinect.DiscreteGestureBasics
 
         private void nextPhrase_Click(object sender, RoutedEventArgs e)
         {
-            Random rnd = new Random();
-            int temp_idx = rnd.Next(0, phrase_list.Length-1);
+            //Random rnd = new Random();
+            //int temp_idx = rnd.Next(0, phrase_list.Length-1);
             //Console.WriteLine("$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ " + temp_idx);
-            current_phrase_index = temp_idx;
-            if (current_phrase_index == phrase_list.Length)
-                current_phrase_index = 0;
+            if (random_phrase_inx_counter == phrase_list.Length)
+                random_phrase_inx_counter = 0;
+            current_phrase_index = random_phrase_indices[random_phrase_inx_counter++];
+
             currentPhraseName.Text = phrase_list[current_phrase_index];
             phrase_name = phrase_list[current_phrase_index];
             /*clientInterface.sendData("new_phrase");
@@ -970,5 +980,22 @@ namespace Microsoft.Samples.Kinect.DiscreteGestureBasics
 
     }
 
+
+
+
+    static class RandomExtensions
+    {
+        public static void Shuffle<T>(this Random rng, T[] array)
+        {
+            int n = array.Length;
+            while (n > 1)
+            {
+                int k = rng.Next(n--);
+                T temp = array[n];
+                array[n] = array[k];
+                array[k] = temp;
+            }
+        }
+    }
 }
 
