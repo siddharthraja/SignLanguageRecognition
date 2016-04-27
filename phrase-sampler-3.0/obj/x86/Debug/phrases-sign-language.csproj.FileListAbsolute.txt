@@ -1,0 +1,174 @@
+C:\Users\Sid\Documents\GitHub\phrases-sign-language\bin\x86\Debug\Database\bg.gbd
+C:\Users\Sid\Documents\GitHub\phrases-sign-language\bin\x86\Debug\Database\ct.gbd
+C:\Users\Sid\Documents\GitHub\phrases-sign-language\bin\x86\Debug\Database\bg1.gbd
+C:\Users\Sid\Documents\GitHub\phrases-sign-language\bin\x86\Debug\Database\sw1.gbd
+C:\Users\Sid\Documents\GitHub\phrases-sign-language\bin\x86\Debug\Database\sw2.gbd
+C:\Users\Sid\Documents\GitHub\phrases-sign-language\bin\x86\Debug\Database\ct2.gbd
+C:\Users\Sid\Documents\GitHub\phrases-sign-language\bin\x86\Debug\phrases-sign-language.exe.config
+C:\Users\Sid\Documents\GitHub\phrases-sign-language\bin\x86\Debug\phrases-sign-language.exe
+C:\Users\Sid\Documents\GitHub\phrases-sign-language\bin\x86\Debug\phrases-sign-language.pdb
+C:\Users\Sid\Documents\GitHub\phrases-sign-language\bin\x86\Debug\Microsoft.Kinect.VisualGestureBuilder.dll
+C:\Users\Sid\Documents\GitHub\phrases-sign-language\bin\x86\Debug\Microsoft.Kinect.VisualGestureBuilder.xml
+C:\Users\Sid\Documents\GitHub\phrases-sign-language\obj\x86\Debug\MainWindow.baml
+C:\Users\Sid\Documents\GitHub\phrases-sign-language\obj\x86\Debug\MainWindow.g.cs
+C:\Users\Sid\Documents\GitHub\phrases-sign-language\obj\x86\Debug\App.g.cs
+C:\Users\Sid\Documents\GitHub\phrases-sign-language\obj\x86\Debug\phrases-sign-language_Content.g.cs
+C:\Users\Sid\Documents\GitHub\phrases-sign-language\obj\x86\Debug\GeneratedInternalTypeHelper.g.cs
+C:\Users\Sid\Documents\GitHub\phrases-sign-language\obj\x86\Debug\phrases-sign-language_MarkupCompile.cache
+C:\Users\Sid\Documents\GitHub\phrases-sign-language\obj\x86\Debug\phrases-sign-language_MarkupCompile.lref
+C:\Users\Sid\Documents\GitHub\phrases-sign-language\obj\x86\Debug\phrases-sign-language.g.resources
+C:\Users\Sid\Documents\GitHub\phrases-sign-language\obj\x86\Debug\Microsoft.Samples.Kinect.DiscreteGestureBasics.Properties.Resources.resources
+C:\Users\Sid\Documents\GitHub\phrases-sign-language\obj\x86\Debug\phrases-sign-language.csproj.GenerateResource.Cache
+C:\Users\Sid\Documents\GitHub\phrases-sign-language\obj\x86\Debug\phrases-sign-language.exe
+C:\Users\Sid\Documents\GitHub\phrases-sign-language\obj\x86\Debug\phrases-sign-language.pdb
+C:\Users\Sid\Documents\GitHub\phrases-sign-language\obj\x86\Debug\phrases-sign-language.csprojResolveAssemblyReference.cache
+C:\Users\Sid\Documents\GitHub\SignLanguageRecognition\phrase-sampler\bin\x86\Debug\phrases-sign-language.exe.config
+C:\Users\Sid\Documents\GitHub\SignLanguageRecognition\phrase-sampler\obj\x86\Debug\phrases-sign-language.exe
+C:\Users\Sid\Documents\GitHub\SignLanguageRecognition\phrase-sampler\obj\x86\Debug\phrases-sign-language.pdb
+C:\Users\Sid\Documents\GitHub\SignLanguageRecognition\phrase-sampler\bin\x86\Debug\Database\bg.gbd
+C:\Users\Sid\Documents\GitHub\SignLanguageRecognition\phrase-sampler\bin\x86\Debug\Database\ct.gbd
+C:\Users\Sid\Documents\GitHub\SignLanguageRecognition\phrase-sampler\bin\x86\Debug\Database\bg1.gbd
+C:\Users\Sid\Documents\GitHub\SignLanguageRecognition\phrase-sampler\bin\x86\Debug\Database\sw1.gbd
+C:\Users\Sid\Documents\GitHub\SignLanguageRecognition\phrase-sampler\bin\x86\Debug\Database\sw2.gbd
+C:\Users\Sid\Documents\GitHub\SignLanguageRecognition\phrase-sampler\bin\x86\Debug\Database\ct2.gbd
+C:\Users\Sid\Documents\GitHub\SignLanguageRecognition\phrase-sampler\bin\x86\Debug\phrases-sign-language.exe
+C:\Users\Sid\Documents\GitHub\SignLanguageRecognition\phrase-sampler\bin\x86\Debug\phrases-sign-language.pdb
+C:\Users\Sid\Documents\GitHub\SignLanguageRecognition\phrase-sampler\bin\x86\Debug\Microsoft.Kinect.VisualGestureBuilder.dll
+C:\Users\Sid\Documents\GitHub\SignLanguageRecognition\phrase-sampler\bin\x86\Debug\Microsoft.Kinect.VisualGestureBuilder.xml
+C:\Users\Sid\Documents\GitHub\SignLanguageRecognition\phrase-sampler\obj\x86\Debug\MainWindow.g.cs
+C:\Users\Sid\Documents\GitHub\SignLanguageRecognition\phrase-sampler\obj\x86\Debug\App.g.cs
+C:\Users\Sid\Documents\GitHub\SignLanguageRecognition\phrase-sampler\obj\x86\Debug\phrases-sign-language_Content.g.cs
+C:\Users\Sid\Documents\GitHub\SignLanguageRecognition\phrase-sampler\obj\x86\Debug\GeneratedInternalTypeHelper.g.cs
+C:\Users\Sid\Documents\GitHub\SignLanguageRecognition\phrase-sampler\obj\x86\Debug\phrases-sign-language_MarkupCompile.cache
+C:\Users\Sid\Documents\GitHub\SignLanguageRecognition\phrase-sampler\obj\x86\Debug\phrases-sign-language_MarkupCompile.lref
+C:\Users\Sid\Documents\GitHub\SignLanguageRecognition\phrase-sampler\obj\x86\Debug\MainWindow.baml
+C:\Users\Sid\Documents\GitHub\SignLanguageRecognition\phrase-sampler\obj\x86\Debug\phrases-sign-language.g.resources
+C:\Users\Sid\Documents\GitHub\SignLanguageRecognition\phrase-sampler\obj\x86\Debug\Microsoft.Samples.Kinect.DiscreteGestureBasics.Properties.Resources.resources
+C:\Users\Sid\Documents\GitHub\SignLanguageRecognition\phrase-sampler\obj\x86\Debug\phrases-sign-language.csproj.GenerateResource.Cache
+C:\Users\Sid\Documents\GitHub\SignLanguageRecognition\phrase-sampler\bin\x86\Debug\MathNet.Numerics.dll
+C:\Users\Sid\Documents\GitHub\SignLanguageRecognition\phrase-sampler\bin\x86\Debug\MathNet.Numerics.xml
+C:\Users\Sid\Documents\GitHub\SignLanguageRecognition\phrase-sampler\obj\x86\Debug\phrases-sign-language.csprojResolveAssemblyReference.cache
+C:\Users\Aditya Vishwanath\git\SignLanguageRecognition\phrase-sampler\bin\x86\Debug\phrases-sign-language.exe.config
+C:\Users\Aditya Vishwanath\git\SignLanguageRecognition\phrase-sampler\bin\x86\Debug\Database\bg.gbd
+C:\Users\Aditya Vishwanath\git\SignLanguageRecognition\phrase-sampler\bin\x86\Debug\Database\ct.gbd
+C:\Users\Aditya Vishwanath\git\SignLanguageRecognition\phrase-sampler\bin\x86\Debug\Database\bg1.gbd
+C:\Users\Aditya Vishwanath\git\SignLanguageRecognition\phrase-sampler\bin\x86\Debug\Database\sw1.gbd
+C:\Users\Aditya Vishwanath\git\SignLanguageRecognition\phrase-sampler\bin\x86\Debug\Database\sw2.gbd
+C:\Users\Aditya Vishwanath\git\SignLanguageRecognition\phrase-sampler\bin\x86\Debug\Database\ct2.gbd
+C:\Users\Aditya Vishwanath\git\SignLanguageRecognition\phrase-sampler\bin\x86\Debug\phrases-sign-language.exe
+C:\Users\Aditya Vishwanath\git\SignLanguageRecognition\phrase-sampler\bin\x86\Debug\phrases-sign-language.pdb
+C:\Users\Aditya Vishwanath\git\SignLanguageRecognition\phrase-sampler\bin\x86\Debug\Microsoft.Kinect.dll
+C:\Users\Aditya Vishwanath\git\SignLanguageRecognition\phrase-sampler\bin\x86\Debug\Microsoft.Kinect.VisualGestureBuilder.dll
+C:\Users\Aditya Vishwanath\git\SignLanguageRecognition\phrase-sampler\bin\x86\Debug\Microsoft.Kinect.xml
+C:\Users\Aditya Vishwanath\git\SignLanguageRecognition\phrase-sampler\bin\x86\Debug\Microsoft.Kinect.VisualGestureBuilder.xml
+C:\Users\Aditya Vishwanath\git\SignLanguageRecognition\phrase-sampler\obj\x86\Debug\phrases-sign-language.csprojResolveAssemblyReference.cache
+C:\Users\Aditya Vishwanath\git\SignLanguageRecognition\phrase-sampler\obj\x86\Debug\MainWindow.g.cs
+C:\Users\Aditya Vishwanath\git\SignLanguageRecognition\phrase-sampler\obj\x86\Debug\App.g.cs
+C:\Users\Aditya Vishwanath\git\SignLanguageRecognition\phrase-sampler\obj\x86\Debug\phrases-sign-language_Content.g.cs
+C:\Users\Aditya Vishwanath\git\SignLanguageRecognition\phrase-sampler\obj\x86\Debug\GeneratedInternalTypeHelper.g.cs
+C:\Users\Aditya Vishwanath\git\SignLanguageRecognition\phrase-sampler\obj\x86\Debug\phrases-sign-language_MarkupCompile.cache
+C:\Users\Aditya Vishwanath\git\SignLanguageRecognition\phrase-sampler\obj\x86\Debug\phrases-sign-language_MarkupCompile.lref
+C:\Users\Aditya Vishwanath\git\SignLanguageRecognition\phrase-sampler\obj\x86\Debug\MainWindow.baml
+C:\Users\Aditya Vishwanath\git\SignLanguageRecognition\phrase-sampler\obj\x86\Debug\phrases-sign-language.g.resources
+C:\Users\Aditya Vishwanath\git\SignLanguageRecognition\phrase-sampler\obj\x86\Debug\Microsoft.Samples.Kinect.DiscreteGestureBasics.Properties.Resources.resources
+C:\Users\Aditya Vishwanath\git\SignLanguageRecognition\phrase-sampler\obj\x86\Debug\phrases-sign-language.csproj.GenerateResource.Cache
+C:\Users\Aditya Vishwanath\git\SignLanguageRecognition\phrase-sampler\obj\x86\Debug\phrases-sign-language.exe
+C:\Users\Aditya Vishwanath\git\SignLanguageRecognition\phrase-sampler\obj\x86\Debug\phrases-sign-language.pdb
+D:\My Doc\SignLanguageRecognition-SLR2.0\phrase-sampler\bin\x86\Debug\phrases-sign-language.exe.config
+D:\My Doc\SignLanguageRecognition-SLR2.0\phrase-sampler\obj\x86\Debug\phrases-sign-language.exe
+D:\My Doc\SignLanguageRecognition-SLR2.0\phrase-sampler\obj\x86\Debug\phrases-sign-language.pdb
+D:\My Doc\SignLanguageRecognition-SLR2.0\phrase-sampler\bin\x86\Debug\Database\bg.gbd
+D:\My Doc\SignLanguageRecognition-SLR2.0\phrase-sampler\bin\x86\Debug\Database\ct.gbd
+D:\My Doc\SignLanguageRecognition-SLR2.0\phrase-sampler\bin\x86\Debug\Database\bg1.gbd
+D:\My Doc\SignLanguageRecognition-SLR2.0\phrase-sampler\bin\x86\Debug\Database\sw1.gbd
+D:\My Doc\SignLanguageRecognition-SLR2.0\phrase-sampler\bin\x86\Debug\Database\sw2.gbd
+D:\My Doc\SignLanguageRecognition-SLR2.0\phrase-sampler\bin\x86\Debug\Database\ct2.gbd
+D:\My Doc\SignLanguageRecognition-SLR2.0\phrase-sampler\bin\x86\Debug\phrases-sign-language.exe
+D:\My Doc\SignLanguageRecognition-SLR2.0\phrase-sampler\bin\x86\Debug\phrases-sign-language.pdb
+D:\My Doc\SignLanguageRecognition-SLR2.0\phrase-sampler\bin\x86\Debug\Microsoft.Kinect.VisualGestureBuilder.dll
+D:\My Doc\SignLanguageRecognition-SLR2.0\phrase-sampler\bin\x86\Debug\Microsoft.Kinect.VisualGestureBuilder.xml
+D:\My Doc\SignLanguageRecognition-SLR2.0\phrase-sampler\obj\x86\Debug\phrases-sign-language.csprojResolveAssemblyReference.cache
+D:\My Doc\SignLanguageRecognition-SLR2.0\phrase-sampler\obj\x86\Debug\MainWindow.g.cs
+D:\My Doc\SignLanguageRecognition-SLR2.0\phrase-sampler\obj\x86\Debug\App.g.cs
+D:\My Doc\SignLanguageRecognition-SLR2.0\phrase-sampler\obj\x86\Debug\phrases-sign-language_Content.g.cs
+D:\My Doc\SignLanguageRecognition-SLR2.0\phrase-sampler\obj\x86\Debug\GeneratedInternalTypeHelper.g.cs
+D:\My Doc\SignLanguageRecognition-SLR2.0\phrase-sampler\obj\x86\Debug\phrases-sign-language_MarkupCompile.cache
+D:\My Doc\SignLanguageRecognition-SLR2.0\phrase-sampler\obj\x86\Debug\phrases-sign-language_MarkupCompile.lref
+D:\My Doc\SignLanguageRecognition-SLR2.0\phrase-sampler\obj\x86\Debug\MainWindow.baml
+D:\My Doc\SignLanguageRecognition-SLR2.0\phrase-sampler\obj\x86\Debug\phrases-sign-language.g.resources
+D:\My Doc\SignLanguageRecognition-SLR2.0\phrase-sampler\obj\x86\Debug\Microsoft.Samples.Kinect.DiscreteGestureBasics.Properties.Resources.resources
+D:\My Doc\SignLanguageRecognition-SLR2.0\phrase-sampler\obj\x86\Debug\phrases-sign-language.csproj.GenerateResource.Cache
+C:\Users\Sid\Documents\GitHub\SignLanguageRecognition\phrase-sampler-2.0\bin\x86\Debug\phrases-sign-language.exe.config
+C:\Users\Sid\Documents\GitHub\SignLanguageRecognition\phrase-sampler-2.0\obj\x86\Debug\phrases-sign-language.exe
+C:\Users\Sid\Documents\GitHub\SignLanguageRecognition\phrase-sampler-2.0\obj\x86\Debug\phrases-sign-language.pdb
+C:\Users\Sid\Documents\GitHub\SignLanguageRecognition\phrase-sampler-2.0\bin\x86\Debug\Database\bg.gbd
+C:\Users\Sid\Documents\GitHub\SignLanguageRecognition\phrase-sampler-2.0\bin\x86\Debug\Database\ct.gbd
+C:\Users\Sid\Documents\GitHub\SignLanguageRecognition\phrase-sampler-2.0\bin\x86\Debug\Database\bg1.gbd
+C:\Users\Sid\Documents\GitHub\SignLanguageRecognition\phrase-sampler-2.0\bin\x86\Debug\Database\sw1.gbd
+C:\Users\Sid\Documents\GitHub\SignLanguageRecognition\phrase-sampler-2.0\bin\x86\Debug\Database\sw2.gbd
+C:\Users\Sid\Documents\GitHub\SignLanguageRecognition\phrase-sampler-2.0\bin\x86\Debug\Database\ct2.gbd
+C:\Users\Sid\Documents\GitHub\SignLanguageRecognition\phrase-sampler-2.0\bin\x86\Debug\phrases-sign-language.exe
+C:\Users\Sid\Documents\GitHub\SignLanguageRecognition\phrase-sampler-2.0\bin\x86\Debug\phrases-sign-language.pdb
+C:\Users\Sid\Documents\GitHub\SignLanguageRecognition\phrase-sampler-2.0\bin\x86\Debug\Microsoft.Kinect.VisualGestureBuilder.dll
+C:\Users\Sid\Documents\GitHub\SignLanguageRecognition\phrase-sampler-2.0\bin\x86\Debug\Microsoft.Kinect.VisualGestureBuilder.xml
+C:\Users\Sid\Documents\GitHub\SignLanguageRecognition\phrase-sampler-2.0\obj\x86\Debug\phrases-sign-language.csprojResolveAssemblyReference.cache
+C:\Users\Sid\Documents\GitHub\SignLanguageRecognition\phrase-sampler-2.0\obj\x86\Debug\MainWindow.g.cs
+C:\Users\Sid\Documents\GitHub\SignLanguageRecognition\phrase-sampler-2.0\obj\x86\Debug\App.g.cs
+C:\Users\Sid\Documents\GitHub\SignLanguageRecognition\phrase-sampler-2.0\obj\x86\Debug\phrases-sign-language_Content.g.cs
+C:\Users\Sid\Documents\GitHub\SignLanguageRecognition\phrase-sampler-2.0\obj\x86\Debug\GeneratedInternalTypeHelper.g.cs
+C:\Users\Sid\Documents\GitHub\SignLanguageRecognition\phrase-sampler-2.0\obj\x86\Debug\phrases-sign-language_MarkupCompile.cache
+C:\Users\Sid\Documents\GitHub\SignLanguageRecognition\phrase-sampler-2.0\obj\x86\Debug\phrases-sign-language_MarkupCompile.lref
+C:\Users\Sid\Documents\GitHub\SignLanguageRecognition\phrase-sampler-2.0\obj\x86\Debug\MainWindow.baml
+C:\Users\Sid\Documents\GitHub\SignLanguageRecognition\phrase-sampler-2.0\obj\x86\Debug\phrases-sign-language.g.resources
+C:\Users\Sid\Documents\GitHub\SignLanguageRecognition\phrase-sampler-2.0\obj\x86\Debug\Microsoft.Samples.Kinect.DiscreteGestureBasics.Properties.Resources.resources
+C:\Users\Sid\Documents\GitHub\SignLanguageRecognition\phrase-sampler-2.0\obj\x86\Debug\phrases-sign-language.csproj.GenerateResource.Cache
+C:\Users\aslr\Documents\GitHub\SignLanguageRecognition\phrase-sampler-1.0\bin\x86\Debug\phrases-sign-language.exe.config
+C:\Users\aslr\Documents\GitHub\SignLanguageRecognition\phrase-sampler-1.0\bin\x86\Debug\Database\bg.gbd
+C:\Users\aslr\Documents\GitHub\SignLanguageRecognition\phrase-sampler-1.0\bin\x86\Debug\Database\ct.gbd
+C:\Users\aslr\Documents\GitHub\SignLanguageRecognition\phrase-sampler-1.0\bin\x86\Debug\Database\bg1.gbd
+C:\Users\aslr\Documents\GitHub\SignLanguageRecognition\phrase-sampler-1.0\bin\x86\Debug\Database\sw1.gbd
+C:\Users\aslr\Documents\GitHub\SignLanguageRecognition\phrase-sampler-1.0\bin\x86\Debug\Database\sw2.gbd
+C:\Users\aslr\Documents\GitHub\SignLanguageRecognition\phrase-sampler-1.0\bin\x86\Debug\Database\ct2.gbd
+C:\Users\aslr\Documents\GitHub\SignLanguageRecognition\phrase-sampler-1.0\bin\x86\Debug\phrases-sign-language.exe
+C:\Users\aslr\Documents\GitHub\SignLanguageRecognition\phrase-sampler-1.0\bin\x86\Debug\phrases-sign-language.pdb
+C:\Users\aslr\Documents\GitHub\SignLanguageRecognition\phrase-sampler-1.0\bin\x86\Debug\Microsoft.Kinect.VisualGestureBuilder.dll
+C:\Users\aslr\Documents\GitHub\SignLanguageRecognition\phrase-sampler-1.0\bin\x86\Debug\Microsoft.Kinect.VisualGestureBuilder.xml
+C:\Users\aslr\Documents\GitHub\SignLanguageRecognition\phrase-sampler-1.0\obj\x86\Debug\phrases-sign-language.csprojResolveAssemblyReference.cache
+C:\Users\aslr\Documents\GitHub\SignLanguageRecognition\phrase-sampler-1.0\obj\x86\Debug\MainWindow.g.cs
+C:\Users\aslr\Documents\GitHub\SignLanguageRecognition\phrase-sampler-1.0\obj\x86\Debug\App.g.cs
+C:\Users\aslr\Documents\GitHub\SignLanguageRecognition\phrase-sampler-1.0\obj\x86\Debug\phrases-sign-language_Content.g.cs
+C:\Users\aslr\Documents\GitHub\SignLanguageRecognition\phrase-sampler-1.0\obj\x86\Debug\GeneratedInternalTypeHelper.g.cs
+C:\Users\aslr\Documents\GitHub\SignLanguageRecognition\phrase-sampler-1.0\obj\x86\Debug\phrases-sign-language_MarkupCompile.cache
+C:\Users\aslr\Documents\GitHub\SignLanguageRecognition\phrase-sampler-1.0\obj\x86\Debug\phrases-sign-language_MarkupCompile.lref
+C:\Users\aslr\Documents\GitHub\SignLanguageRecognition\phrase-sampler-1.0\obj\x86\Debug\MainWindow.baml
+C:\Users\aslr\Documents\GitHub\SignLanguageRecognition\phrase-sampler-1.0\obj\x86\Debug\phrases-sign-language.g.resources
+C:\Users\aslr\Documents\GitHub\SignLanguageRecognition\phrase-sampler-1.0\obj\x86\Debug\Microsoft.Samples.Kinect.DiscreteGestureBasics.Properties.Resources.resources
+C:\Users\aslr\Documents\GitHub\SignLanguageRecognition\phrase-sampler-1.0\obj\x86\Debug\phrases-sign-language.csproj.GenerateResource.Cache
+C:\Users\aslr\Documents\GitHub\SignLanguageRecognition\phrase-sampler-1.0\obj\x86\Debug\phrases-sign-language.exe
+C:\Users\aslr\Documents\GitHub\SignLanguageRecognition\phrase-sampler-1.0\obj\x86\Debug\phrases-sign-language.pdb
+C:\Users\aslr\Documents\GitHub\SignLanguageRecognition\phrase-sampler-2.0\bin\x86\Debug\phrases-sign-language.exe.config
+C:\Users\aslr\Documents\GitHub\SignLanguageRecognition\phrase-sampler-2.0\obj\x86\Debug\phrases-sign-language.exe
+C:\Users\aslr\Documents\GitHub\SignLanguageRecognition\phrase-sampler-2.0\obj\x86\Debug\phrases-sign-language.pdb
+C:\Users\aslr\Documents\GitHub\SignLanguageRecognition\phrase-sampler-2.0\bin\x86\Debug\Database\bg.gbd
+C:\Users\aslr\Documents\GitHub\SignLanguageRecognition\phrase-sampler-2.0\bin\x86\Debug\Database\ct.gbd
+C:\Users\aslr\Documents\GitHub\SignLanguageRecognition\phrase-sampler-2.0\bin\x86\Debug\Database\bg1.gbd
+C:\Users\aslr\Documents\GitHub\SignLanguageRecognition\phrase-sampler-2.0\bin\x86\Debug\Database\sw1.gbd
+C:\Users\aslr\Documents\GitHub\SignLanguageRecognition\phrase-sampler-2.0\bin\x86\Debug\Database\sw2.gbd
+C:\Users\aslr\Documents\GitHub\SignLanguageRecognition\phrase-sampler-2.0\bin\x86\Debug\Database\ct2.gbd
+C:\Users\aslr\Documents\GitHub\SignLanguageRecognition\phrase-sampler-2.0\bin\x86\Debug\phrases-sign-language.exe
+C:\Users\aslr\Documents\GitHub\SignLanguageRecognition\phrase-sampler-2.0\bin\x86\Debug\phrases-sign-language.pdb
+C:\Users\aslr\Documents\GitHub\SignLanguageRecognition\phrase-sampler-2.0\bin\x86\Debug\Microsoft.Kinect.VisualGestureBuilder.dll
+C:\Users\aslr\Documents\GitHub\SignLanguageRecognition\phrase-sampler-2.0\bin\x86\Debug\Microsoft.Kinect.VisualGestureBuilder.xml
+C:\Users\aslr\Documents\GitHub\SignLanguageRecognition\phrase-sampler-2.0\obj\x86\Debug\MainWindow.g.cs
+C:\Users\aslr\Documents\GitHub\SignLanguageRecognition\phrase-sampler-2.0\obj\x86\Debug\App.g.cs
+C:\Users\aslr\Documents\GitHub\SignLanguageRecognition\phrase-sampler-2.0\obj\x86\Debug\phrases-sign-language_Content.g.cs
+C:\Users\aslr\Documents\GitHub\SignLanguageRecognition\phrase-sampler-2.0\obj\x86\Debug\GeneratedInternalTypeHelper.g.cs
+C:\Users\aslr\Documents\GitHub\SignLanguageRecognition\phrase-sampler-2.0\obj\x86\Debug\phrases-sign-language_MarkupCompile.cache
+C:\Users\aslr\Documents\GitHub\SignLanguageRecognition\phrase-sampler-2.0\obj\x86\Debug\phrases-sign-language_MarkupCompile.lref
+C:\Users\aslr\Documents\GitHub\SignLanguageRecognition\phrase-sampler-2.0\obj\x86\Debug\MainWindow.baml
+C:\Users\aslr\Documents\GitHub\SignLanguageRecognition\phrase-sampler-2.0\obj\x86\Debug\phrases-sign-language.g.resources
+C:\Users\aslr\Documents\GitHub\SignLanguageRecognition\phrase-sampler-2.0\obj\x86\Debug\Microsoft.Samples.Kinect.DiscreteGestureBasics.Properties.Resources.resources
+C:\Users\aslr\Documents\GitHub\SignLanguageRecognition\phrase-sampler-2.0\obj\x86\Debug\phrases-sign-language.csproj.GenerateResource.Cache
+C:\Users\aslr\Documents\GitHub\SignLanguageRecognition\phrase-sampler-2.0\bin\x86\Debug\Microsoft.Kinect.dll
+C:\Users\aslr\Documents\GitHub\SignLanguageRecognition\phrase-sampler-2.0\bin\x86\Debug\Microsoft.Kinect.xml
+C:\Users\aslr\Documents\GitHub\SignLanguageRecognition\phrase-sampler-2.0\obj\x86\Debug\phrases-sign-language.csprojResolveAssemblyReference.cache
